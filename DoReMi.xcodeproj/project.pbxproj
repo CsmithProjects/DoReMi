@@ -10,11 +10,11 @@
 		756A462F268D331F00F8F081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A462E268D331F00F8F081 /* AppDelegate.swift */; };
 		756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4630268D331F00F8F081 /* SceneDelegate.swift */; };
 		756A4633268D331F00F8F081 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4632268D331F00F8F081 /* ViewController.swift */; };
-		756A4636268D331F00F8F081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756A4634268D331F00F8F081 /* Main.storyboard */; };
 		756A4638268D332000F8F081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 756A4637268D332000F8F081 /* Assets.xcassets */; };
 		756A463B268D332000F8F081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756A4639268D332000F8F081 /* LaunchScreen.storyboard */; };
 		756A4646268D332100F8F081 /* DoReMiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4645268D332100F8F081 /* DoReMiTests.swift */; };
 		756A4651268D332100F8F081 /* DoReMiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4650268D332100F8F081 /* DoReMiUITests.swift */; };
+		756A465F268D357600F8F081 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A465E268D357600F8F081 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		756A462E268D331F00F8F081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756A4630268D331F00F8F081 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		756A4632268D331F00F8F081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		756A4635268D331F00F8F081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		756A4637268D332000F8F081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		756A463A268D332000F8F081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		756A463C268D332000F8F081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		756A464C268D332100F8F081 /* DoReMiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoReMiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		756A4650268D332100F8F081 /* DoReMiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoReMiUITests.swift; sourceTree = "<group>"; };
 		756A4652268D332100F8F081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		756A465E268D357600F8F081 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +102,10 @@
 				756A462E268D331F00F8F081 /* AppDelegate.swift */,
 				756A4630268D331F00F8F081 /* SceneDelegate.swift */,
 				756A4632268D331F00F8F081 /* ViewController.swift */,
-				756A4634268D331F00F8F081 /* Main.storyboard */,
 				756A4637268D332000F8F081 /* Assets.xcassets */,
 				756A4639268D332000F8F081 /* LaunchScreen.storyboard */,
 				756A463C268D332000F8F081 /* Info.plist */,
+				756A465E268D357600F8F081 /* TabBarViewController.swift */,
 			);
 			path = DoReMi;
 			sourceTree = "<group>";
@@ -233,7 +233,6 @@
 			files = (
 				756A463B268D332000F8F081 /* LaunchScreen.storyboard in Resources */,
 				756A4638268D332000F8F081 /* Assets.xcassets in Resources */,
-				756A4636268D331F00F8F081 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756A465F268D357600F8F081 /* TabBarViewController.swift in Sources */,
 				756A4633268D331F00F8F081 /* ViewController.swift in Sources */,
 				756A462F268D331F00F8F081 /* AppDelegate.swift in Sources */,
 				756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */,
@@ -296,14 +296,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		756A4634268D331F00F8F081 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				756A4635268D331F00F8F081 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		756A4639268D332000F8F081 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,7 +429,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JV98Q78HP8;
 				INFOPLIST_FILE = DoReMi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,7 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DoReMi.DoReMi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -455,7 +449,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JV98Q78HP8;
 				INFOPLIST_FILE = DoReMi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DoReMi.DoReMi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
