@@ -1,0 +1,6 @@
+framework module Pods_DoReMi {
+  umbrella header "Pods-DoReMi-umbrella.h"
+
+  export *
+  module * { export * }
+}

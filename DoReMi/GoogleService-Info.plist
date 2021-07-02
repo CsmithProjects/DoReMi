@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>316918309534-9srgt3718dqcs279k58ib9nup7gibg6s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.316918309534-9srgt3718dqcs279k58ib9nup7gibg6s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAGTr9iduYJZ3B-4gsKEg78X6g6tOcZVI8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>316918309534</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>DoReMi.DoReMi</string>
+	<key>PROJECT_ID</key>
+	<string>doremi-d4e3a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>doremi-d4e3a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:316918309534:ios:711ed258627e4bf6b0918f</string>
+	<key>DATABASE_URL</key>
+	<string>https://doremi-d4e3a-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
