@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
         let discover = DiscoverViewController()
         let create = CreateViewController()
         let wallet = WalletViewController()
-        let profile = ProfileViewController()
+        let profile = ProfileViewController(user: User(username: "self", profilePictureURL: nil, identifier: "abc123"))
         
         home.title = "Home"
         discover.title = "Discover"
@@ -35,6 +35,10 @@ class TabBarViewController: UITabBarController {
         let nav5 = UINavigationController(rootViewController: profile)
         
         let symbolConfig = UIImage.SymbolConfiguration(weight: .semibold)
+        
+        nav1.navigationBar.backgroundColor = .clear
+        nav1.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        nav1.navigationBar.shadowImage = UIImage()
         
         
         nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
