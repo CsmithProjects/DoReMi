@@ -35,6 +35,14 @@
 		75C2A6942696698E0009BDD1 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6932696698E0009BDD1 /* PostComment.swift */; };
 		75C2A696269669C80009BDD1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A695269669C80009BDD1 /* User.swift */; };
 		75C2A6982696810B0009BDD1 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6972696810B0009BDD1 /* CommentTableViewCell.swift */; };
+		75C2A69C269F8D580009BDD1 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 75C2A69B269F8D580009BDD1 /* video.mp4 */; };
+		75C2A69E269F96AA0009BDD1 /* DiscoverSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A69D269F96AA0009BDD1 /* DiscoverSection.swift */; };
+		75C2A6A0269F97000009BDD1 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A69F269F97000009BDD1 /* DiscoverCell.swift */; };
+		75C2A6A2269F974D0009BDD1 /* DiscoverSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A1269F974D0009BDD1 /* DiscoverSectionType.swift */; };
+		75C2A6A4269F99540009BDD1 /* DiscoverBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A3269F99540009BDD1 /* DiscoverBannerViewModel.swift */; };
+		75C2A6A6269F99990009BDD1 /* DiscoverPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A5269F99990009BDD1 /* DiscoverPostViewModel.swift */; };
+		75C2A6A8269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A7269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift */; };
+		75C2A6AA269F99DF0009BDD1 /* DiscoverUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A9269F99DF0009BDD1 /* DiscoverUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +96,14 @@
 		75C2A6932696698E0009BDD1 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		75C2A695269669C80009BDD1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		75C2A6972696810B0009BDD1 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		75C2A69B269F8D580009BDD1 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = ../../../video.mp4; sourceTree = "<group>"; };
+		75C2A69D269F96AA0009BDD1 /* DiscoverSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSection.swift; sourceTree = "<group>"; };
+		75C2A69F269F97000009BDD1 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
+		75C2A6A1269F974D0009BDD1 /* DiscoverSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSectionType.swift; sourceTree = "<group>"; };
+		75C2A6A3269F99540009BDD1 /* DiscoverBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBannerViewModel.swift; sourceTree = "<group>"; };
+		75C2A6A5269F99990009BDD1 /* DiscoverPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPostViewModel.swift; sourceTree = "<group>"; };
+		75C2A6A7269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHashtagViewModel.swift; sourceTree = "<group>"; };
+		75C2A6A9269F99DF0009BDD1 /* DiscoverUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserViewModel.swift; sourceTree = "<group>"; };
 		76AA33086935200AC9841A5A /* Pods_DoReMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoReMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A71F1E452391898E187332 /* Pods-DoReMi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMi.release.xcconfig"; path = "Target Support Files/Pods-DoReMi/Pods-DoReMi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +180,7 @@
 		756A4660268D3E7000F8F081 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				75C2A69B269F8D580009BDD1 /* video.mp4 */,
 				756A4689268E71F400F8F081 /* GoogleService-Info.plist */,
 				756A4637268D332000F8F081 /* Assets.xcassets */,
 				756A462E268D331F00F8F081 /* AppDelegate.swift */,
@@ -197,6 +214,9 @@
 				75C2A68F26950BC40009BDD1 /* PostModel.swift */,
 				75C2A6932696698E0009BDD1 /* PostComment.swift */,
 				75C2A695269669C80009BDD1 /* User.swift */,
+				75C2A69D269F96AA0009BDD1 /* DiscoverSection.swift */,
+				75C2A69F269F97000009BDD1 /* DiscoverCell.swift */,
+				75C2A6A1269F974D0009BDD1 /* DiscoverSectionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +224,10 @@
 		756A4665268D3ECF00F8F081 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				75C2A6A3269F99540009BDD1 /* DiscoverBannerViewModel.swift */,
+				75C2A6A5269F99990009BDD1 /* DiscoverPostViewModel.swift */,
+				75C2A6A7269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift */,
+				75C2A6A9269F99DF0009BDD1 /* DiscoverUserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -377,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75C2A69C269F8D580009BDD1 /* video.mp4 in Resources */,
 				756A463B268D332000F8F081 /* LaunchScreen.storyboard in Resources */,
 				756A4638268D332000F8F081 /* Assets.xcassets in Resources */,
 				756A468A268E71F400F8F081 /* GoogleService-Info.plist in Resources */,
@@ -475,19 +500,26 @@
 				756A467E268E639D00F8F081 /* PostViewController.swift in Sources */,
 				75C2A68E269010920009BDD1 /* Extensions.swift in Sources */,
 				756A4670268D403C00F8F081 /* WalletViewController.swift in Sources */,
+				75C2A6A8269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift in Sources */,
 				756A466E268D403100F8F081 /* CreateViewController.swift in Sources */,
+				75C2A6AA269F99DF0009BDD1 /* DiscoverUserViewModel.swift in Sources */,
 				756A462F268D331F00F8F081 /* AppDelegate.swift in Sources */,
 				756A467A268E634E00F8F081 /* SignUpViewController.swift in Sources */,
 				756A4686268E63E800F8F081 /* AuthenticationManager.swift in Sources */,
 				75C2A69226965D260009BDD1 /* CommentsViewController.swift in Sources */,
+				75C2A69E269F96AA0009BDD1 /* DiscoverSection.swift in Sources */,
 				75C2A6942696698E0009BDD1 /* PostComment.swift in Sources */,
 				756A4674268E632400F8F081 /* UserListViewController.swift in Sources */,
+				75C2A6A2269F974D0009BDD1 /* DiscoverSectionType.swift in Sources */,
+				75C2A6A0269F97000009BDD1 /* DiscoverCell.swift in Sources */,
 				756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */,
 				756A4672268D40D900F8F081 /* ProfileViewController.swift in Sources */,
 				75C2A6982696810B0009BDD1 /* CommentTableViewCell.swift in Sources */,
 				756A4682268E63C700F8F081 /* StorageManager.swift in Sources */,
 				756A4676268E633300F8F081 /* SignInViewController.swift in Sources */,
+				75C2A6A4269F99540009BDD1 /* DiscoverBannerViewModel.swift in Sources */,
 				756A466C268D402100F8F081 /* DiscoverViewController.swift in Sources */,
+				75C2A6A6269F99990009BDD1 /* DiscoverPostViewModel.swift in Sources */,
 				75C2A696269669C80009BDD1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

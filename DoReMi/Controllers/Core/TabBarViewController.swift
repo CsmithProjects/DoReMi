@@ -20,10 +20,12 @@ class TabBarViewController: UITabBarController {
         let discover = DiscoverViewController()
         let create = CreateViewController()
         let wallet = WalletViewController()
-        let profile = ProfileViewController(user: User(username: "self", profilePictureURL: nil, identifier: "abc123"))
+        let profile = ProfileViewController(
+            user: User(username: "self",
+                       profilePictureURL: nil,
+                       identifier: "abc123"))
         
         home.title = "Home"
-        discover.title = "Discover"
         create.title = "Create"
         wallet.title = "Wallet"
         profile.title = "Profile"
