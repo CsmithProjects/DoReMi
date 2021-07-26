@@ -23,6 +23,7 @@ class DiscoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DiscoverManager.shared.delegate = self
         view.backgroundColor = .systemBackground
         configureModels()
         setUpSearchBar()
@@ -39,12 +40,12 @@ class DiscoverViewController: UIViewController {
         searchBar.delegate = self
     }
     
-    func configureModels() {
+    private func configureModels() {
         var cells = [DiscoverCell]()
         for _ in 0...100 {
             let cell = DiscoverCell.banner(
                 viewModel: DiscoverBannerViewModel(
-                    image: nil,
+                    image: UIImage(named: "test"),
                     title: "Foo",
                     handler: {
                         
@@ -57,23 +58,19 @@ class DiscoverViewController: UIViewController {
         sections.append(
             DiscoverSection(
                 type: .banners,
-                cells: cells
+                cells: DiscoverManager.shared.getDiscoverBanners().compactMap({
+                    return DiscoverCell.banner(viewModel: $0)
+                })
             )
         )
         
-        var posts = [DiscoverCell]()
-        for _ in 0...40 {
-            posts.append(
-                .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                    
-                }))
-            )
-        }
         // Trending Posts
         sections.append(
             DiscoverSection(
                 type: .trendingPosts,
-                cells: posts
+                cells: DiscoverManager.shared.getDiscoverTrendingPosts().compactMap({
+                    return DiscoverCell.post(viewModel: $0)
+                })
             )
         )
         
@@ -81,20 +78,9 @@ class DiscoverViewController: UIViewController {
         sections.append(
             DiscoverSection(
                 type: .users,
-                cells: [
-                    .user(viewModel: DiscoverUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
-                        
-                    })),
-                    .user(viewModel: DiscoverUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
-                        
-                    })),
-                    .user(viewModel: DiscoverUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
-                        
-                    })),
-                    .user(viewModel: DiscoverUserViewModel(profilePictureURL: nil, username: "", followerCount: 0, handler: {
-                        
-                    }))
-                ]
+                cells: DiscoverManager.shared.getDiscoverCreators().compactMap({
+                    return DiscoverCell.user(viewModel: $0)
+                })
             )
         )
         
@@ -102,38 +88,9 @@ class DiscoverViewController: UIViewController {
         sections.append(
             DiscoverSection(
                 type: .trendingHashtags,
-                cells: [
-                    .hashtag(viewModel: DiscoverHashtagViewModel(icon: nil, text: "#foryou", count: 1, handler: {
-                        
-                    })),
-                    .hashtag(viewModel: DiscoverHashtagViewModel(icon: nil, text: "#foryou", count: 1, handler: {
-                        
-                    })),
-                    .hashtag(viewModel: DiscoverHashtagViewModel(icon: nil, text: "#foryou", count: 1, handler: {
-                        
-                    }))
-                ]
-            )
-        )
-        
-        // Recommmended
-        sections.append(
-            DiscoverSection(
-                type: .recommended,
-                cells: [
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    }))
-                ]
+                cells: DiscoverManager.shared.getDiscoverHashtags().compactMap({
+                    return DiscoverCell.hashtag(viewModel: $0)
+                })
             )
         )
         
@@ -142,20 +99,9 @@ class DiscoverViewController: UIViewController {
         sections.append(
             DiscoverSection(
                 type: .popular,
-                cells: [
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    }))
-                ]
+                cells: DiscoverManager.shared.getDiscoverPopularPosts().compactMap({
+                    return DiscoverCell.post(viewModel: $0)
+                })
             )
         )
         
@@ -164,20 +110,9 @@ class DiscoverViewController: UIViewController {
         sections.append(
             DiscoverSection(
                 type: .new,
-                cells: [
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    })),
-                    .post(viewModel: DiscoverPostViewModel(thumbnailImage: nil, caption: "", handler: {
-                        
-                    }))
-                ]
+                cells: DiscoverManager.shared.getDiscoverRecentPosts().compactMap({
+                    return DiscoverCell.post(viewModel: $0)
+                })
             )
         )
         
@@ -196,13 +131,142 @@ class DiscoverViewController: UIViewController {
             UICollectionViewCell.self,
             forCellWithReuseIdentifier: "cell"
         )
+        collectionView.register(
+            DiscoverBannerCollectionViewCell.self,
+            forCellWithReuseIdentifier: DiscoverBannerCollectionViewCell.identifier
+        )
+        collectionView.register(
+            DiscoverPostCollectionViewCell.self,
+            forCellWithReuseIdentifier: DiscoverPostCollectionViewCell.identifier
+        )
+        collectionView.register(
+            DiscoverUserCollectionViewCell.self,
+            forCellWithReuseIdentifier: DiscoverUserCollectionViewCell.identifier
+        )
+        collectionView.register(
+            DiscoverHashtagCollectionViewCell.self,
+            forCellWithReuseIdentifier: DiscoverHashtagCollectionViewCell.identifier
+        )
+        
+        
+        collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
         
         self.collectionView = collectionView
     }
+}
+
+extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sections.count
+    }
     
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sections[section].cells.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let model = sections[indexPath.section].cells[indexPath.row]
+        
+        switch model {
+        case .banner(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: DiscoverBannerCollectionViewCell.identifier,
+                    for: indexPath
+            ) as? DiscoverBannerCollectionViewCell else {
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "cell",
+                    for: indexPath
+                )
+            }
+            cell.configure(with: viewModel)
+            return cell
+        case .post(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: DiscoverPostCollectionViewCell.identifier,
+                    for: indexPath
+            ) as? DiscoverPostCollectionViewCell else {
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "cell",
+                    for: indexPath
+                )
+            }
+            cell.configure(with: viewModel)
+            return cell
+        case .hashtag(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: DiscoverHashtagCollectionViewCell.identifier,
+                    for: indexPath
+            ) as? DiscoverHashtagCollectionViewCell else {
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "cell",
+                    for: indexPath
+                )
+            }
+            cell.configure(with: viewModel)
+            return cell
+        case .user(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: DiscoverUserCollectionViewCell.identifier,
+                    for: indexPath
+            ) as? DiscoverUserCollectionViewCell else {
+                return collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "cell",
+                    for: indexPath
+                )
+            }
+            cell.configure(with: viewModel)
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        HapticsManager.shared.vibrateForSelection()
+        let model = sections[indexPath.section].cells[indexPath.row]
+        
+        switch model {
+        case .banner(let viewModel):
+            viewModel.handler()
+        case .post(let viewModel):
+            viewModel.handler()
+        case .hashtag(let viewModel):
+            viewModel.handler()
+        case .user(let viewModel):
+            viewModel.handler()
+        }
+    }
+    
+}
+
+extension DiscoverViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Cancel",
+            style: .done,
+            target: self,
+            action: #selector(didTapCancel)
+        )
+    }
+    
+    @objc func didTapCancel() {
+        navigationItem.rightBarButtonItem = nil
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        navigationItem.rightBarButtonItem = nil
+        searchBar.resignFirstResponder()
+    }
+}
+
+// MARK: - Section Layouts
+
+extension DiscoverViewController {
     func layout(for section: Int) -> NSCollectionLayoutSection {
         let sectionType = sections[section].type
         
@@ -247,7 +311,7 @@ class DiscoverViewController: UIViewController {
             // Group
             let group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .absolute(200),
+                    widthDimension: .absolute(150),
                     heightDimension: .absolute(200)
                 ),
                 subitems: [item]
@@ -255,7 +319,7 @@ class DiscoverViewController: UIViewController {
             
             // Section
             let sectionLayout = NSCollectionLayoutSection(group: group)
-            sectionLayout.orthogonalScrollingBehavior = .groupPaging
+            sectionLayout.orthogonalScrollingBehavior = .continuous
             
             // Return
             return sectionLayout
@@ -299,7 +363,7 @@ class DiscoverViewController: UIViewController {
             let verticalGroup = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .absolute(100),
-                    heightDimension: .absolute(240)
+                    heightDimension: .absolute(300)
                 ),
                 subitem: item,
                 count: 2
@@ -308,7 +372,7 @@ class DiscoverViewController: UIViewController {
             let group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .absolute(110),
-                    heightDimension: .absolute(240)
+                    heightDimension: .absolute(300)
                 ),
                 subitems: [verticalGroup]
             )
@@ -347,46 +411,15 @@ class DiscoverViewController: UIViewController {
             return sectionLayout
         }
     }
-
 }
 
-extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections.count
+extension DiscoverViewController: DiscoverManagerDelegate {
+    func pushViewController(_ vc: UIViewController) {
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections[section].cells.count
+    func didTapHashtag(_ hashtag: String) {
+        searchBar.text = hashtag
+        searchBar.becomeFirstResponder()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let model = sections[indexPath.section].cells[indexPath.row]
-        
-        switch model {
-        case .banner(let viewModel):
-            break
-        case .post(let viewModel):
-            break
-        case .hashtag(let viewModel):
-            break
-        case .user(let viewModel):
-            break
-        }
-        
-        
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "cell",
-            for: indexPath
-        )
-        cell.backgroundColor = .red
-        
-        return cell
-    }
-    
-    
-}
-
-extension DiscoverViewController: UISearchBarDelegate {
-    
 }

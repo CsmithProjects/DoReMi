@@ -43,6 +43,14 @@
 		75C2A6A6269F99990009BDD1 /* DiscoverPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A5269F99990009BDD1 /* DiscoverPostViewModel.swift */; };
 		75C2A6A8269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A7269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift */; };
 		75C2A6AA269F99DF0009BDD1 /* DiscoverUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A6A9269F99DF0009BDD1 /* DiscoverUserViewModel.swift */; };
+		75C2A71926A63CE40009BDD1 /* DiscoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A71826A63CE40009BDD1 /* DiscoverManager.swift */; };
+		75C2A71B26A782C50009BDD1 /* explore.json in Resources */ = {isa = PBXBuildFile; fileRef = 75C2A71A26A782C50009BDD1 /* explore.json */; };
+		75C2A71D26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A71C26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift */; };
+		75C2A71F26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A71E26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift */; };
+		75C2A72126A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72026A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift */; };
+		75C2A72326A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */; };
+		75C2A72626AE3B0F0009BDD1 /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72526AE3B0F0009BDD1 /* AuthField.swift */; };
+		75C2A72826AE3D1F0009BDD1 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72726AE3D1F0009BDD1 /* AuthButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +112,14 @@
 		75C2A6A5269F99990009BDD1 /* DiscoverPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPostViewModel.swift; sourceTree = "<group>"; };
 		75C2A6A7269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHashtagViewModel.swift; sourceTree = "<group>"; };
 		75C2A6A9269F99DF0009BDD1 /* DiscoverUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserViewModel.swift; sourceTree = "<group>"; };
+		75C2A71826A63CE40009BDD1 /* DiscoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverManager.swift; sourceTree = "<group>"; };
+		75C2A71A26A782C50009BDD1 /* explore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = explore.json; path = ../../../explore.json; sourceTree = "<group>"; };
+		75C2A71C26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		75C2A71E26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		75C2A72026A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHashtagCollectionViewCell.swift; sourceTree = "<group>"; };
+		75C2A72526AE3B0F0009BDD1 /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
+		75C2A72726AE3D1F0009BDD1 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		76AA33086935200AC9841A5A /* Pods_DoReMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoReMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A71F1E452391898E187332 /* Pods-DoReMi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMi.release.xcconfig"; path = "Target Support Files/Pods-DoReMi/Pods-DoReMi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +196,7 @@
 		756A4660268D3E7000F8F081 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				75C2A71A26A782C50009BDD1 /* explore.json */,
 				75C2A69B269F8D580009BDD1 /* video.mp4 */,
 				756A4689268E71F400F8F081 /* GoogleService-Info.plist */,
 				756A4637268D332000F8F081 /* Assets.xcassets */,
@@ -240,6 +257,7 @@
 				756A4683268E63D800F8F081 /* DatabaseManager.swift */,
 				756A4685268E63E800F8F081 /* AuthenticationManager.swift */,
 				756A4687268E63F900F8F081 /* HapticsManager.swift */,
+				75C2A71826A63CE40009BDD1 /* DiscoverManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -260,10 +278,9 @@
 		756A466A268D3FF600F8F081 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				75C2A72426AE35840009BDD1 /* Authentication */,
 				756A4673268E632400F8F081 /* UserListViewController.swift */,
-				756A4675268E633300F8F081 /* SignInViewController.swift */,
 				756A4677268E633E00F8F081 /* SettingsViewController.swift */,
-				756A4679268E634E00F8F081 /* SignUpViewController.swift */,
 				756A467D268E639D00F8F081 /* PostViewController.swift */,
 				75C2A69126965D260009BDD1 /* CommentsViewController.swift */,
 			);
@@ -282,8 +299,23 @@
 			isa = PBXGroup;
 			children = (
 				75C2A6972696810B0009BDD1 /* CommentTableViewCell.swift */,
+				75C2A71C26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift */,
+				75C2A71E26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift */,
+				75C2A72026A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift */,
+				75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */,
+				75C2A72526AE3B0F0009BDD1 /* AuthField.swift */,
+				75C2A72726AE3D1F0009BDD1 /* AuthButton.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		75C2A72426AE35840009BDD1 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				756A4675268E633300F8F081 /* SignInViewController.swift */,
+				756A4679268E634E00F8F081 /* SignUpViewController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		EBFA8236656C0A3A6371D777 /* Pods */ = {
@@ -401,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75C2A71B26A782C50009BDD1 /* explore.json in Resources */,
 				75C2A69C269F8D580009BDD1 /* video.mp4 in Resources */,
 				756A463B268D332000F8F081 /* LaunchScreen.storyboard in Resources */,
 				756A4638268D332000F8F081 /* Assets.xcassets in Resources */,
@@ -492,15 +525,21 @@
 			files = (
 				756A4688268E63F900F8F081 /* HapticsManager.swift in Sources */,
 				75C2A69026950BC40009BDD1 /* PostModel.swift in Sources */,
+				75C2A71D26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift in Sources */,
 				756A4684268E63D800F8F081 /* DatabaseManager.swift in Sources */,
 				756A465F268D357600F8F081 /* TabBarViewController.swift in Sources */,
 				756A4633268D331F00F8F081 /* HomeViewController.swift in Sources */,
 				756A4678268E633E00F8F081 /* SettingsViewController.swift in Sources */,
+				75C2A72826AE3D1F0009BDD1 /* AuthButton.swift in Sources */,
 				756A4680268E63B800F8F081 /* APICaller.swift in Sources */,
 				756A467E268E639D00F8F081 /* PostViewController.swift in Sources */,
+				75C2A71F26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift in Sources */,
 				75C2A68E269010920009BDD1 /* Extensions.swift in Sources */,
 				756A4670268D403C00F8F081 /* WalletViewController.swift in Sources */,
+				75C2A71926A63CE40009BDD1 /* DiscoverManager.swift in Sources */,
 				75C2A6A8269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift in Sources */,
+				75C2A72126A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift in Sources */,
+				75C2A72626AE3B0F0009BDD1 /* AuthField.swift in Sources */,
 				756A466E268D403100F8F081 /* CreateViewController.swift in Sources */,
 				75C2A6AA269F99DF0009BDD1 /* DiscoverUserViewModel.swift in Sources */,
 				756A462F268D331F00F8F081 /* AppDelegate.swift in Sources */,
@@ -514,6 +553,7 @@
 				75C2A6A0269F97000009BDD1 /* DiscoverCell.swift in Sources */,
 				756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */,
 				756A4672268D40D900F8F081 /* ProfileViewController.swift in Sources */,
+				75C2A72326A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift in Sources */,
 				75C2A6982696810B0009BDD1 /* CommentTableViewCell.swift in Sources */,
 				756A4682268E63C700F8F081 /* StorageManager.swift in Sources */,
 				756A4676268E633300F8F081 /* SignInViewController.swift in Sources */,
