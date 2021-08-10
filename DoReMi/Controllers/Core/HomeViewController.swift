@@ -206,8 +206,16 @@ extension HomeViewController: PostViewControllerDelegate {
     
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
         let user = post.user
+        print(user)
         let vc = ProfileViewController(user: user)
+        vc.hidesBottomBarWhenPushed = true
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(didTapBack))
+        navigationController?.navigationBar.tintColor = .label
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func didTapBack() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -228,5 +236,25 @@ extension HomeViewController: CommentsViewControllerDelegate {
                 }
             }
         }
+    }
+}
+
+extension HomeViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+}
+
+
+class NoSwipeSegmentedControl: UISegmentedControl {
+
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

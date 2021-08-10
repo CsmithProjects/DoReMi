@@ -51,6 +51,16 @@
 		75C2A72326A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */; };
 		75C2A72626AE3B0F0009BDD1 /* AuthField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72526AE3B0F0009BDD1 /* AuthField.swift */; };
 		75C2A72826AE3D1F0009BDD1 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72726AE3D1F0009BDD1 /* AuthButton.swift */; };
+		75C2A72A26B0B8750009BDD1 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72926B0B8750009BDD1 /* RecordButton.swift */; };
+		75C2A72C26B0C0E40009BDD1 /* CaptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72B26B0C0E40009BDD1 /* CaptionViewController.swift */; };
+		75C2A72E26B38D560009BDD1 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72D26B38D560009BDD1 /* NotificationsViewController.swift */; };
+		75C2A73026B38E0B0009BDD1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72F26B38E0B0009BDD1 /* MessagesViewController.swift */; };
+		75C2A73226B3930F0009BDD1 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73126B3930F0009BDD1 /* ProfileManager.swift */; };
+		75C2A73426B5F4530009BDD1 /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73326B5F4530009BDD1 /* AnimationsManager.swift */; };
+		75C2A73626BB84770009BDD1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73526BB84770009BDD1 /* Notifications.swift */; };
+		75C2A73826BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73726BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift */; };
+		75C2A73C26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73B26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift */; };
+		75C2A73E26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73D26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +130,16 @@
 		75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHashtagCollectionViewCell.swift; sourceTree = "<group>"; };
 		75C2A72526AE3B0F0009BDD1 /* AuthField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthField.swift; sourceTree = "<group>"; };
 		75C2A72726AE3D1F0009BDD1 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		75C2A72926B0B8750009BDD1 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		75C2A72B26B0C0E40009BDD1 /* CaptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionViewController.swift; sourceTree = "<group>"; };
+		75C2A72D26B38D560009BDD1 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		75C2A72F26B38E0B0009BDD1 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		75C2A73126B3930F0009BDD1 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		75C2A73326B5F4530009BDD1 /* AnimationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
+		75C2A73526BB84770009BDD1 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		75C2A73726BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUserFollowTableViewCell.swift; sourceTree = "<group>"; };
+		75C2A73B26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostLikeTableViewCell.swift; sourceTree = "<group>"; };
+		75C2A73D26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostCommentTableViewCell.swift; sourceTree = "<group>"; };
 		76AA33086935200AC9841A5A /* Pods_DoReMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoReMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A71F1E452391898E187332 /* Pods-DoReMi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMi.release.xcconfig"; path = "Target Support Files/Pods-DoReMi/Pods-DoReMi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +254,7 @@
 				75C2A69D269F96AA0009BDD1 /* DiscoverSection.swift */,
 				75C2A69F269F97000009BDD1 /* DiscoverCell.swift */,
 				75C2A6A1269F974D0009BDD1 /* DiscoverSectionType.swift */,
+				75C2A73526BB84770009BDD1 /* Notifications.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,11 +274,13 @@
 			isa = PBXGroup;
 			children = (
 				756A467F268E63B800F8F081 /* APICaller.swift */,
-				756A4681268E63C700F8F081 /* StorageManager.swift */,
-				756A4683268E63D800F8F081 /* DatabaseManager.swift */,
+				75C2A73326B5F4530009BDD1 /* AnimationsManager.swift */,
 				756A4685268E63E800F8F081 /* AuthenticationManager.swift */,
-				756A4687268E63F900F8F081 /* HapticsManager.swift */,
+				756A4683268E63D800F8F081 /* DatabaseManager.swift */,
 				75C2A71826A63CE40009BDD1 /* DiscoverManager.swift */,
+				756A4687268E63F900F8F081 /* HapticsManager.swift */,
+				75C2A73126B3930F0009BDD1 /* ProfileManager.swift */,
+				756A4681268E63C700F8F081 /* StorageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -283,6 +306,9 @@
 				756A4677268E633E00F8F081 /* SettingsViewController.swift */,
 				756A467D268E639D00F8F081 /* PostViewController.swift */,
 				75C2A69126965D260009BDD1 /* CommentsViewController.swift */,
+				75C2A72B26B0C0E40009BDD1 /* CaptionViewController.swift */,
+				75C2A72D26B38D560009BDD1 /* NotificationsViewController.swift */,
+				75C2A72F26B38E0B0009BDD1 /* MessagesViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -298,13 +324,11 @@
 		756A467C268E637A00F8F081 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				75C2A73926BB93DC0009BDD1 /* Auth */,
+				75C2A73A26BB93FF0009BDD1 /* Discover */,
+				75C2A74026BB94A20009BDD1 /* Notifications */,
 				75C2A6972696810B0009BDD1 /* CommentTableViewCell.swift */,
-				75C2A71C26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift */,
-				75C2A71E26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift */,
-				75C2A72026A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift */,
-				75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */,
-				75C2A72526AE3B0F0009BDD1 /* AuthField.swift */,
-				75C2A72726AE3D1F0009BDD1 /* AuthButton.swift */,
+				75C2A72926B0B8750009BDD1 /* RecordButton.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -316,6 +340,36 @@
 				756A4679268E634E00F8F081 /* SignUpViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		75C2A73926BB93DC0009BDD1 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				75C2A72526AE3B0F0009BDD1 /* AuthField.swift */,
+				75C2A72726AE3D1F0009BDD1 /* AuthButton.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		75C2A73A26BB93FF0009BDD1 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				75C2A71C26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift */,
+				75C2A71E26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift */,
+				75C2A72026A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift */,
+				75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		75C2A74026BB94A20009BDD1 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				75C2A73726BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift */,
+				75C2A73B26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift */,
+				75C2A73D26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		EBFA8236656C0A3A6371D777 /* Pods */ = {
@@ -540,7 +594,11 @@
 				75C2A6A8269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift in Sources */,
 				75C2A72126A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift in Sources */,
 				75C2A72626AE3B0F0009BDD1 /* AuthField.swift in Sources */,
+				75C2A72A26B0B8750009BDD1 /* RecordButton.swift in Sources */,
 				756A466E268D403100F8F081 /* CreateViewController.swift in Sources */,
+				75C2A72C26B0C0E40009BDD1 /* CaptionViewController.swift in Sources */,
+				75C2A73826BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift in Sources */,
+				75C2A73426B5F4530009BDD1 /* AnimationsManager.swift in Sources */,
 				75C2A6AA269F99DF0009BDD1 /* DiscoverUserViewModel.swift in Sources */,
 				756A462F268D331F00F8F081 /* AppDelegate.swift in Sources */,
 				756A467A268E634E00F8F081 /* SignUpViewController.swift in Sources */,
@@ -550,14 +608,20 @@
 				75C2A6942696698E0009BDD1 /* PostComment.swift in Sources */,
 				756A4674268E632400F8F081 /* UserListViewController.swift in Sources */,
 				75C2A6A2269F974D0009BDD1 /* DiscoverSectionType.swift in Sources */,
+				75C2A73626BB84770009BDD1 /* Notifications.swift in Sources */,
 				75C2A6A0269F97000009BDD1 /* DiscoverCell.swift in Sources */,
+				75C2A72E26B38D560009BDD1 /* NotificationsViewController.swift in Sources */,
 				756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */,
 				756A4672268D40D900F8F081 /* ProfileViewController.swift in Sources */,
 				75C2A72326A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift in Sources */,
 				75C2A6982696810B0009BDD1 /* CommentTableViewCell.swift in Sources */,
 				756A4682268E63C700F8F081 /* StorageManager.swift in Sources */,
+				75C2A73026B38E0B0009BDD1 /* MessagesViewController.swift in Sources */,
 				756A4676268E633300F8F081 /* SignInViewController.swift in Sources */,
+				75C2A73C26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift in Sources */,
+				75C2A73226B3930F0009BDD1 /* ProfileManager.swift in Sources */,
 				75C2A6A4269F99540009BDD1 /* DiscoverBannerViewModel.swift in Sources */,
+				75C2A73E26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift in Sources */,
 				756A466C268D402100F8F081 /* DiscoverViewController.swift in Sources */,
 				75C2A6A6269F99990009BDD1 /* DiscoverPostViewModel.swift in Sources */,
 				75C2A696269669C80009BDD1 /* User.swift in Sources */,

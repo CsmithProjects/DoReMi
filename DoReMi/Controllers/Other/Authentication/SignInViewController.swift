@@ -34,8 +34,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Sign In"
+        addSubviews()
         configureFields()
         configureButtons()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        emailField.becomeFirstResponder()
     }
     
     func configureFields() {
@@ -103,12 +109,18 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        AuthManager.shared.signIn(with: email, password: password) { loggedIn in
-            if loggedIn {
-                // dismiss Sign in
-            }
-            else {
-                // show error
+        AuthManager.shared.signIn(with: email, password: password) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self?.dismiss(animated: true, completion: nil)
+                case .failure(let error):
+                    print(error)
+                    let alert = UIAlertController(title: "Sign In Failed", message: "Please check you email and password and try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self?.present(alert, animated: true)
+                    self?.passwordField.text = nil
+                }
             }
         }
     }

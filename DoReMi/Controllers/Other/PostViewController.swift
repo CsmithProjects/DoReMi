@@ -195,6 +195,7 @@ class PostViewController: UIViewController {
     @objc private func didDoubleTap(_ gesture: UITapGestureRecognizer) {
         if !model.isLikedByCurrentUser {
             model.isLikedByCurrentUser = true
+            likeButton.tintColor = model.isLikedByCurrentUser ? .systemRed : .white
         }
         
         let touchPoint = gesture.location(in: view)
@@ -223,5 +224,25 @@ class PostViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+// set for when this controller is pushed
+
+extension PostViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        //navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }

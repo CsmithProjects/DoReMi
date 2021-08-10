@@ -14,8 +14,12 @@ target 'DoReMi' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Performance'
+
 
   pod 'Appirater'
   pod 'SDWebImage'
+  pod 'ProgressHUD'
+  pod 'RAMAnimatedTabBarController'
 
 end

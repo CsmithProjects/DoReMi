@@ -42,6 +42,7 @@ final class DiscoverManager {
                     let vc = UIViewController()
                     vc.view.backgroundColor = .systemBackground
                     vc.title = action.rawValue.uppercased()
+                    vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
                 switch action {
@@ -74,6 +75,7 @@ final class DiscoverManager {
                     let userID = model.id
                     // Fetch user object from firebase
                     let vc = ProfileViewController(user: User(username: "joe", profilePictureURL: nil, identifier: userID))
+                    vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -111,7 +113,9 @@ final class DiscoverManager {
                 // use id to fetch post from firebase
                 DispatchQueue.main.async {
                     let postID = model.id
+                    print(postID)
                     let vc = PostViewController(model: PostModel(identifier: postID))
+                    vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -132,6 +136,7 @@ final class DiscoverManager {
                 DispatchQueue.main.async {
                     let postID = model.id
                     let vc = PostViewController(model: PostModel(identifier: postID))
+                    vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
             }
@@ -151,6 +156,7 @@ final class DiscoverManager {
                 DispatchQueue.main.async {
                     let postID = model.id
                     let vc = PostViewController(model: PostModel(identifier: postID))
+                    vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
             }
