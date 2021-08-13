@@ -41,19 +41,19 @@ class DiscoverViewController: UIViewController {
     }
     
     private func configureModels() {
-        var cells = [DiscoverCell]()
-        for _ in 0...100 {
-            let cell = DiscoverCell.banner(
-                viewModel: DiscoverBannerViewModel(
-                    image: UIImage(named: "test"),
-                    title: "Foo",
-                    handler: {
-                        
-                    }
-                )
-            )
-            cells.append(cell)
-        }
+//        var cells = [DiscoverCell]()
+//        for _ in 0...100 {
+//            let cell = DiscoverCell.banner(
+//                viewModel: DiscoverBannerViewModel(
+//                    image: UIImage(named: "test"),
+//                    title: "Foo",
+//                    handler: {
+//
+//                    }
+//                )
+//            )
+//            cells.append(cell)
+//        }
         // Banner
         sections.append(
             DiscoverSection(

@@ -20,6 +20,6 @@ target 'DoReMi' do
   pod 'Appirater'
   pod 'SDWebImage'
   pod 'ProgressHUD'
-  pod 'RAMAnimatedTabBarController'
+  pod 'ShimmerSwift'
 
 end

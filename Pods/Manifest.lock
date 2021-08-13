@@ -393,10 +393,10 @@ PODS:
   - ProgressHUD (13.6)
   - PromisesObjC (1.2.12)
   - Protobuf (3.17.0)
-  - RAMAnimatedTabBarController (5.2.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - ShimmerSwift (2.1.1)
 
 DEPENDENCIES:
   - Appirater
@@ -409,8 +409,8 @@ DEPENDENCIES:
   - Firebase/Performance
   - Firebase/Storage
   - ProgressHUD
-  - RAMAnimatedTabBarController
   - SDWebImage
+  - ShimmerSwift
 
 SPEC REPOS:
   trunk:
@@ -441,8 +441,8 @@ SPEC REPOS:
     - ProgressHUD
     - PromisesObjC
     - Protobuf
-    - RAMAnimatedTabBarController
     - SDWebImage
+    - ShimmerSwift
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -472,9 +472,9 @@ SPEC CHECKSUMS:
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
-  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  ShimmerSwift: f7ed2daf9c246de8299dfd9e12c6ab465cba9842
 
-PODFILE CHECKSUM: ad1662f5a477b0dc70fc33eb3aac6567f2eaa6d2
+PODFILE CHECKSUM: 49625f465ab87770d8dc4768749c83bf91b106e1
 
 COCOAPODS: 1.10.1

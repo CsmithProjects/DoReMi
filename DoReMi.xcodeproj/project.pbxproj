@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C85895927CA97D7819C6641 /* Pods_DoReMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA33086935200AC9841A5A /* Pods_DoReMi.framework */; };
+		7521968C26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521968B26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift */; };
+		7521968E26C48A9000F102FA /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521968D26C48A9000F102FA /* ProfileHeaderViewModel.swift */; };
 		756A462F268D331F00F8F081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A462E268D331F00F8F081 /* AppDelegate.swift */; };
 		756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4630268D331F00F8F081 /* SceneDelegate.swift */; };
 		756A4633268D331F00F8F081 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4632268D331F00F8F081 /* HomeViewController.swift */; };
@@ -82,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		62E9C7E57E6F18B0A25FA41B /* Pods-DoReMi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMi.debug.xcconfig"; path = "Target Support Files/Pods-DoReMi/Pods-DoReMi.debug.xcconfig"; sourceTree = "<group>"; };
+		7521968B26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		7521968D26C48A9000F102FA /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		756A462B268D331F00F8F081 /* DoReMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoReMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		756A462E268D331F00F8F081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756A4630268D331F00F8F081 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				75C2A6A5269F99990009BDD1 /* DiscoverPostViewModel.swift */,
 				75C2A6A7269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift */,
 				75C2A6A9269F99DF0009BDD1 /* DiscoverUserViewModel.swift */,
+				7521968D26C48A9000F102FA /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				75C2A74026BB94A20009BDD1 /* Notifications */,
 				75C2A6972696810B0009BDD1 /* CommentTableViewCell.swift */,
 				75C2A72926B0B8750009BDD1 /* RecordButton.swift */,
+				7521968B26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				756A4688268E63F900F8F081 /* HapticsManager.swift in Sources */,
 				75C2A69026950BC40009BDD1 /* PostModel.swift in Sources */,
 				75C2A71D26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift in Sources */,
+				7521968C26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				756A4684268E63D800F8F081 /* DatabaseManager.swift in Sources */,
 				756A465F268D357600F8F081 /* TabBarViewController.swift in Sources */,
 				756A4633268D331F00F8F081 /* HomeViewController.swift in Sources */,
@@ -611,6 +618,7 @@
 				75C2A73626BB84770009BDD1 /* Notifications.swift in Sources */,
 				75C2A6A0269F97000009BDD1 /* DiscoverCell.swift in Sources */,
 				75C2A72E26B38D560009BDD1 /* NotificationsViewController.swift in Sources */,
+				7521968E26C48A9000F102FA /* ProfileHeaderViewModel.swift in Sources */,
 				756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */,
 				756A4672268D40D900F8F081 /* ProfileViewController.swift in Sources */,
 				75C2A72326A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift in Sources */,

@@ -60,7 +60,23 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(didCallRefresh(_:)), for: .valueChanged)
+        tableView.refreshControl = control
+        
         fetchNotifications()
+    }
+    
+    @objc func didCallRefresh(_ sender: UIRefreshControl) {
+        sender.beginRefreshing()
+        
+        DatabaseManager.shared.getNotifications { [weak self] notifications in
+            DispatchQueue.main.async {
+                self?.notifications = notifications
+                self?.tableView.reloadData()
+                sender.endRefreshing()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -223,7 +239,11 @@ extension NotificationsViewController: NotificationsPostCommentTableViewCellDele
 extension NotificationsViewController {
     func openPost(with identifier: String) {
         // resolve the post model from the db
-        let vc = PostViewController(model: PostModel(identifier: identifier))
+        let vc = PostViewController(model: PostModel(identifier: identifier, user: User(
+            username: "kanyewest",
+            profilePictureURL: nil,
+            identifier: UUID().uuidString
+        )))
         vc.hidesBottomBarWhenPushed = true
         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(didTapBack))
         navigationController?.navigationBar.tintColor = .white

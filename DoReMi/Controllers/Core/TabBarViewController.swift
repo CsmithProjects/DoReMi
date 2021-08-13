@@ -37,10 +37,19 @@ class TabBarViewController: UITabBarController {
         let discover = DiscoverViewController()
         let create = CreateViewController()
         let wallet = WalletViewController()
+        
+        var urlString: String?
+        if let cachedUrlString = UserDefaults.standard.string(forKey: "profile_picture_url") {
+            urlString = cachedUrlString
+        }
+        
         let profile = ProfileViewController(
-            user: User(username: "self",
-                       profilePictureURL: nil,
-                       identifier: "abc123"))
+            user: User(
+                username: UserDefaults.standard.string(forKey: "username")?.lowercased() ?? "Me",
+                profilePictureURL: URL(string: urlString ?? ""),
+                identifier: UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""
+            )
+        )
         
         home.title = "Home"
         wallet.title = "Wallet"

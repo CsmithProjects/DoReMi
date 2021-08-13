@@ -172,14 +172,14 @@
 			<key>orderHint</key>
 			<integer>29</integer>
 		</dict>
-		<key>RAMAnimatedTabBarController.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>30</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>ShimmerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

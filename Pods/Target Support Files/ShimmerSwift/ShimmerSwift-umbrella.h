@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double RAMAnimatedTabBarControllerVersionNumber;
-FOUNDATION_EXPORT const unsigned char RAMAnimatedTabBarControllerVersionString[];
+FOUNDATION_EXPORT double ShimmerSwiftVersionNumber;
+FOUNDATION_EXPORT const unsigned char ShimmerSwiftVersionString[];
 

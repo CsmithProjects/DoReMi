@@ -114,7 +114,11 @@ final class DiscoverManager {
                 DispatchQueue.main.async {
                     let postID = model.id
                     print(postID)
-                    let vc = PostViewController(model: PostModel(identifier: postID))
+                    let vc = PostViewController(model: PostModel(identifier: postID, user: User(
+                        username: "kanyewest",
+                        profilePictureURL: nil,
+                        identifier: UUID().uuidString
+                    )))
                     vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
@@ -135,7 +139,11 @@ final class DiscoverManager {
                 // use id to fetch post from firebase
                 DispatchQueue.main.async {
                     let postID = model.id
-                    let vc = PostViewController(model: PostModel(identifier: postID))
+                    let vc = PostViewController(model: PostModel(identifier: postID, user: User(
+                        username: "kanyewest",
+                        profilePictureURL: nil,
+                        identifier: UUID().uuidString
+                    )))
                     vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
@@ -155,7 +163,11 @@ final class DiscoverManager {
                 // use id to fetch post from firebase
                 DispatchQueue.main.async {
                     let postID = model.id
-                    let vc = PostViewController(model: PostModel(identifier: postID))
+                    let vc = PostViewController(model: PostModel(identifier: postID, user: User(
+                        username: "kanyewest",
+                        profilePictureURL: nil,
+                        identifier: UUID().uuidString
+                    )))
                     vc.hidesBottomBarWhenPushed = true
                     self?.delegate?.pushViewController(vc)
                 }
