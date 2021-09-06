@@ -5,6 +5,7 @@
 //  Created by Conor Smith on 7/27/21.
 //
 
+import Appirater
 import ProgressHUD
 import UIKit
 
@@ -65,15 +66,16 @@ class CaptionViewController: UIViewController {
                     // update database
                     DatabaseManager.shared.insertPost(fileName: newVideoName, caption: caption) { databaseUpdated in
                         if databaseUpdated {
-                            HapticsManager.shared.vibrate(for: .success)
+                            Appirater.tryToShowPrompt()
                             ProgressHUD.dismiss()
+                            HapticsManager.shared.vibrate(for: .success)
                             self?.navigationController?.popToRootViewController(animated: true)
                             self?.tabBarController?.selectedIndex = 0
                             self?.tabBarController?.tabBar.isHidden = false
                         }
                         else {
-                            HapticsManager.shared.vibrate(for: .error)
                             ProgressHUD.dismiss()
+                            HapticsManager.shared.vibrate(for: .error)
                             let alert = UIAlertController(title: "Whoops", message: "We were unable to upload your video. Please try again.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                             self?.present(alert, animated: true)
@@ -82,6 +84,7 @@ class CaptionViewController: UIViewController {
                 }
                 else {
                     ProgressHUD.dismiss()
+                    HapticsManager.shared.vibrate(for: .error)
                     let alert = UIAlertController(title: "Whoops", message: "We were unable to upload your video. Please try again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                     self?.present(alert, animated: true)

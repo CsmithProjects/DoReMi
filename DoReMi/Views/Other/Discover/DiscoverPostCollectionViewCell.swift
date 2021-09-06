@@ -10,16 +10,18 @@ import UIKit
 class DiscoverPostCollectionViewCell: UICollectionViewCell {
     static let identifier = "DiscoverPostCollectionViewCell"
     
-    private let thumbnailImageView: UIImageView = {
+    let thumbnailImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 8
         return imageView
     }()
     
     private let captionLabel: UILabel = {
        let label = UILabel()
         label.numberOfLines = 0
+        label.layer.cornerRadius = 8
         return label
     }()
     
@@ -28,7 +30,7 @@ class DiscoverPostCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.addSubview(thumbnailImageView)
         contentView.addSubview(captionLabel)
-        contentView.layer.cornerRadius = 8
+        //thumbnailImageView.layer.cornerRadius = 8
         contentView.layer.masksToBounds = true
     }
     
@@ -43,7 +45,7 @@ class DiscoverPostCollectionViewCell: UICollectionViewCell {
             x: 0,
             y: 0,
             width: contentView.width,
-            height: contentView.height-captionHeight
+            height: contentView.height-captionHeight - 6
         )
         captionLabel.frame = CGRect(
             x: 0,

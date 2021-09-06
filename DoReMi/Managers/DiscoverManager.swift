@@ -8,24 +8,39 @@
 import Foundation
 import UIKit
 
+/// Delegate interface to notify manager events
 protocol DiscoverManagerDelegate: AnyObject {
-    func pushViewController(_ vc: UIViewController)
+    /// Notify a view controller should be pushed
+    /// - Parameter vc: The view controller to present
+    func pushViewController(_ vc: UIViewController, _ isPostVC: Bool)
+    /// Notify a hashtag element was tapped
+    /// - Parameter hashtag: The hashtag that was tapped
     func didTapHashtag(_ hashtag: String)
+    func didTapCommentsButton(_ vc: UIViewController)
 }
 
-final class DiscoverManager {
+/// Manager that handles Discover view content
+final class DiscoverManager: UIViewController {
+    /// Shared singleton instance
     static let shared = DiscoverManager()
     
+    /// Delegate to notify of events
     weak var delegate: DiscoverManagerDelegate?
     
+    /// Represents banner action type
     enum BannerAction: String {
+        /// Post type
         case post
+        /// Hashtag search type
         case hashtag
+        /// User type
         case user
     }
     
     //MARK: - Public
     
+    /// Gets Discover data for banners
+    /// - Returns: Return collection of models
     public func getDiscoverBanners() -> [DiscoverBannerViewModel] {
         guard let discoverData = parseDiscoverData() else {
             return []
@@ -43,7 +58,7 @@ final class DiscoverManager {
                     vc.view.backgroundColor = .systemBackground
                     vc.title = action.rawValue.uppercased()
                     vc.hidesBottomBarWhenPushed = true
-                    self?.delegate?.pushViewController(vc)
+                    self?.delegate?.pushViewController(vc, false)
                 }
                 switch action {
                 case .user:
@@ -60,7 +75,8 @@ final class DiscoverManager {
         })
     }
     
-    
+    /// Gets Discover data for popular creators
+    /// - Returns: Return collection of models
     public func getDiscoverCreators() -> [DiscoverUserViewModel] {
         guard let discoverData = parseDiscoverData() else {
             return []
@@ -74,15 +90,16 @@ final class DiscoverManager {
                 DispatchQueue.main.async {
                     let userID = model.id
                     // Fetch user object from firebase
-                    let vc = ProfileViewController(user: User(username: "joe", profilePictureURL: nil, identifier: userID))
+                    let vc = ProfileViewController(user: User(username: "joe", profilePictureURL: nil, coverPictureURL: nil, identifier: userID))
                     vc.hidesBottomBarWhenPushed = true
-                    self?.delegate?.pushViewController(vc)
+                    self?.delegate?.pushViewController(vc, false)
                 }
             }
         })
     }
     
-    
+    /// Gets Discover data for hashtags
+    /// - Returns: Return collection of models
     public func getDiscoverHashtags() -> [DiscoverHashtagViewModel] {
         guard let discoverData = parseDiscoverData() else {
             return []
@@ -100,7 +117,8 @@ final class DiscoverManager {
         })
     }
     
-    
+    /// Gets Discover data for trending posts
+    /// - Returns: Return collection of models
     public func getDiscoverTrendingPosts() -> [DiscoverPostViewModel] {
         guard let discoverData = parseDiscoverData() else {
             return []
@@ -111,22 +129,24 @@ final class DiscoverManager {
                 caption: model.caption
             ) { [weak self] in
                 // use id to fetch post from firebase
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     let postID = model.id
-                    print(postID)
                     let vc = PostViewController(model: PostModel(identifier: postID, user: User(
                         username: "kanyewest",
                         profilePictureURL: nil,
+                        coverPictureURL: nil,
                         identifier: UUID().uuidString
                     )))
                     vc.hidesBottomBarWhenPushed = true
-                    self?.delegate?.pushViewController(vc)
+                    vc.delegate = self
+                    self?.delegate?.pushViewController(vc, true)
                 }
             }
         })
     }
     
-    
+    /// Gets Discover data for recent posts
+    /// - Returns: Return collection of models
     public func getDiscoverRecentPosts() -> [DiscoverPostViewModel] {
         guard let discoverData = parseDiscoverData() else {
             return []
@@ -142,15 +162,18 @@ final class DiscoverManager {
                     let vc = PostViewController(model: PostModel(identifier: postID, user: User(
                         username: "kanyewest",
                         profilePictureURL: nil,
+                        coverPictureURL: nil,
                         identifier: UUID().uuidString
                     )))
                     vc.hidesBottomBarWhenPushed = true
-                    self?.delegate?.pushViewController(vc)
+                    self?.delegate?.pushViewController(vc, true)
                 }
             }
         })
     }
     
+    /// Gets Discover data for popular posts
+    /// - Returns: Return collection of models
     public func getDiscoverPopularPosts() -> [DiscoverPostViewModel] {
         guard let discoverData = parseDiscoverData() else {
             return []
@@ -166,10 +189,11 @@ final class DiscoverManager {
                     let vc = PostViewController(model: PostModel(identifier: postID, user: User(
                         username: "kanyewest",
                         profilePictureURL: nil,
+                        coverPictureURL: nil,
                         identifier: UUID().uuidString
                     )))
                     vc.hidesBottomBarWhenPushed = true
-                    self?.delegate?.pushViewController(vc)
+                    self?.delegate?.pushViewController(vc, true)
                 }
             }
         })
@@ -177,6 +201,8 @@ final class DiscoverManager {
     
     // MARK: - Private
     
+    /// Parses Discover JSON data
+    /// - Returns: Returns a optional response model
     private func parseDiscoverData() -> DiscoverResponse? {
         guard let path = Bundle.main.path(forResource: "explore", ofType: "json") else {
             return nil
@@ -196,38 +222,40 @@ final class DiscoverManager {
     }
 }
 
-struct DiscoverResponse: Codable {
-    let banners: [Banner]
-    let trendingPosts: [Post]
-    let creators: [Creator]
-    let recentPosts: [Post]
-    let hashtags: [Hashtag]
-    let popular: [Post]
-    let recommended: [Post]
+extension DiscoverManager: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        let vc = CommentsViewController(post: post)
+        vc.delegate = self
+        self.delegate?.didTapCommentsButton(vc)
+    }
+    
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
+        let user = post.user
+        let vc = ProfileViewController(user: user)
+        vc.hidesBottomBarWhenPushed = true
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(didTapBack))
+        vc.navigationController?.navigationBar.tintColor = .label
+        self.delegate?.pushViewController(vc, false)
+    }
+    
+    @objc func didTapBack() {
+        //Empty tap
+    }
 }
 
-struct Banner: Codable {
-    let id: String
-    let image: String
-    let title: String
-    let action: String
-}
-
-struct Post: Codable {
-    let id: String
-    let image: String
-    let caption: String
-}
-
-struct Hashtag: Codable {
-    let image: String
-    let tag: String
-    let count: Int
-}
-
-struct Creator: Codable {
-    let id: String
-    let image: String
-    let username: String
-    let followers_count: Int
+extension DiscoverManager: CommentsViewControllerDelegate {
+    func didTapCloseForComments(with viewController: CommentsViewController) {
+        //close comment with animation
+        let frame = viewController.view.frame
+        UIView.animate(withDuration: 0.2) {
+            //viewController.view.frame = CGRect(x: 0, y: self.view.height, width: frame.width, height: frame.height)
+        } completion: { done in
+            if done {
+                DispatchQueue.main.async {
+                    viewController.view.removeFromSuperview()
+                    viewController.removeFromParent()
+                }
+            }
+        }
+    }
 }

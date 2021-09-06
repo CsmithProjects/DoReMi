@@ -62,4 +62,16 @@ final class AnimationsManager {
             })
         })
     }
+    
+    public func shimmerAnimation() -> CAGradientLayer {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.systemGray6.cgColor, UIColor.systemGray5.cgColor, UIColor.systemGray6.cgColor]
+        gradientLayer.locations = [0, 0.5, 1]
+        
+        let angle = 75 * CGFloat.pi / 180
+        gradientLayer.transform = CATransform3DMakeRotation(angle, 0, 0, 1)
+        
+        return gradientLayer
+        
+    }
 }

@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-protocol PostViewControllerDelegate: AnyObject{
+protocol PostViewControllerDelegate: AnyObject {
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel)
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel)
 }
@@ -16,8 +16,10 @@ protocol PostViewControllerDelegate: AnyObject{
 class PostViewController: UIViewController {
     
     weak var delegate: PostViewControllerDelegate?
-
+    
     var model: PostModel
+    
+    var postViewModel: DiscoverPostViewModel?
     
     private let likeButton: UIButton = {
         let button = UIButton()
@@ -67,6 +69,15 @@ class PostViewController: UIViewController {
     
     private var playerDidFinishObserver: NSObjectProtocol?
     
+    private let videoView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    private var isPlaying = false
+    
     // MARK: - Init
     
     init(model: PostModel) {
@@ -80,15 +91,28 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(videoView)
         configureVideo()
-
-        let colors: [UIColor] = [
-            .red, .green, .black, .blue, .orange, .systemPink
-        ]
-        view.backgroundColor = colors.randomElement()
+        view.backgroundColor = .black
         
         setUpButtons()
-        setUpDoubleTapToLike()
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
+        //singleTap.delaysTouchesBegan = true
+        //singleTap.
+        singleTap.numberOfTapsRequired = 1
+        videoView.addGestureRecognizer(singleTap)
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(didDoubleTap(_:)))
+        doubleTap.delaysTouchesBegan = true
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.cancelsTouchesInView = false
+        doubleTap.canPrevent(singleTap)
+        videoView.addGestureRecognizer(doubleTap)
+        
+        singleTap.require(toFail: doubleTap)
+        
+
         view.addSubview(captionLabel)
         view.addSubview(profileButton)
         profileButton.addTarget(self, action: #selector(didTapProfileButton), for: .touchUpInside)
@@ -96,6 +120,8 @@ class PostViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        videoView.frame = view.bounds
         
         let size: CGFloat = 40
         let yStart: CGFloat = view.height - (size * 4.0) - 30 - view.safeAreaInsets.bottom
@@ -127,30 +153,69 @@ class PostViewController: UIViewController {
     }
     
     private func configureVideo() {
-        guard let path = Bundle.main.path(forResource: "video", ofType: "mp4") else {
-            return
-        }
-        let url = URL(fileURLWithPath: path)
-        player = AVPlayer(url: url)
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = view.bounds
-        playerLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(playerLayer)
-        player?.volume = 0
-        player?.play()
-        
-        guard let player = player else {
-            return
-        }
-        
-        playerDidFinishObserver = NotificationCenter.default.addObserver(
-            forName: .AVPlayerItemDidPlayToEndTime,
-            object: player.currentItem,
-            queue: .main
-        ) { _ in
-            player.seek(to: .zero)
-            player.play()
+        StorageManager.shared.getDownloadURL(for: model) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let url):
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    strongSelf.player = AVPlayer(url: url)
+                    
+                    let playerLayer = AVPlayerLayer(player: self?.player)
+                    playerLayer.frame = strongSelf.view.bounds
+                    playerLayer.videoGravity = .resizeAspectFill
+                    strongSelf.videoView.layer.addSublayer(playerLayer)
+                    strongSelf.player?.play()
+                    strongSelf.player?.volume = 0
+                    
+                    //This code below is needed twice for some reason outside aync call it stops working
+                    guard let player = self?.player else {
+                        return
+                    }
+                    
+                    self?.playerDidFinishObserver = NotificationCenter.default.addObserver(
+                        forName: .AVPlayerItemDidPlayToEndTime,
+                        object: player.currentItem,
+                        queue: .main
+                    ) { _ in
+                        player.seek(to: .zero)
+                        player.play()
+                    }
+                case .failure:
+                    guard let path = Bundle.main.path(forResource: "video", ofType: "mp4") else {
+                        return
+                    }
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    let url = URL(fileURLWithPath: path)
+                    
+                    strongSelf.player = AVPlayer(url: url)
+                    
+                    let playerLayer = AVPlayerLayer(player: strongSelf.player)
+                    playerLayer.frame = strongSelf.view.bounds
+                    playerLayer.videoGravity = .resizeAspectFill
+                    strongSelf.videoView.layer.addSublayer(playerLayer)
+                    strongSelf.player?.play()
+                    strongSelf.player?.volume = 0
+                    
+                    
+                    //This code below is needed twice for some reason outside aync call it stops working
+                    guard let player = self?.player else {
+                        return
+                    }
+                    
+                    self?.playerDidFinishObserver = NotificationCenter.default.addObserver(
+                        forName: .AVPlayerItemDidPlayToEndTime,
+                        object: player.currentItem,
+                        queue: .main
+                    ) { _ in
+                        player.seek(to: .zero)
+                        player.play()
+                    }
+                }
+            }
         }
     }
     
@@ -185,12 +250,18 @@ class PostViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    func setUpDoubleTapToLike() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didDoubleTap(_:)))
-        tap.numberOfTapsRequired = 2
-        view.addGestureRecognizer(tap)
-        view.isUserInteractionEnabled = true
+
+    
+    @objc private func didTap(_ gesture: UITapGestureRecognizer) {
+        if (isPlaying) {
+            isPlaying = false
+            player?.pause()
+        } else {
+            isPlaying = true
+            player?.play()
+        }
     }
+    
     
     @objc private func didDoubleTap(_ gesture: UITapGestureRecognizer) {
         if !model.isLikedByCurrentUser {
@@ -198,7 +269,7 @@ class PostViewController: UIViewController {
             likeButton.tintColor = model.isLikedByCurrentUser ? .systemRed : .white
         }
         
-        let touchPoint = gesture.location(in: view)
+        let touchPoint = gesture.location(in: videoView)
         
         let imageView = UIImageView(image: UIImage(systemName: "heart.fill"))
         imageView.tintColor = .systemRed
@@ -230,19 +301,22 @@ class PostViewController: UIViewController {
 // set for when this controller is pushed
 
 extension PostViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        player?.play()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        player?.pause()
+        player?.seek(to: .zero)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.backgroundColor = .clear
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        //navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }

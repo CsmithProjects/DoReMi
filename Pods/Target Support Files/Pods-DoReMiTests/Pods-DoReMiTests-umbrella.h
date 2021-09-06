@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ShimmerSwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char ShimmerSwiftVersionString[];
+FOUNDATION_EXPORT double Pods_DoReMiTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_DoReMiTestsVersionString[];
 

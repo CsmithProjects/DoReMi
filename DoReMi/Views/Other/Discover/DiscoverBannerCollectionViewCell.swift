@@ -29,7 +29,6 @@ class DiscoverBannerCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.addSubview(label)
         contentView.addSubview(imageView)
-        contentView.layer.cornerRadius = 8
         contentView.layer.masksToBounds = true
     }
     

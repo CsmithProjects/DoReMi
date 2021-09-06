@@ -203,9 +203,16 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
 
 extension NotificationsViewController: NotificationsUserFollowTableViewCellDelegate {
     func notificationsUserFollowTableViewCell(_ cell: NotificationsUserFollowTableViewCell, didTapFollowFor username: String) {
-        DatabaseManager.shared.follow(username: username) { success in
+        DatabaseManager.shared.updateRelationship(
+            for: User(
+                username: username,
+                profilePictureURL: nil,
+                coverPictureURL: nil,
+                identifier: UUID().uuidString),
+            follow: true
+        ) { success in
             if !success {
-                print("Success went wrong")
+                // something went wrong
             }
         }
     }
@@ -216,6 +223,7 @@ extension NotificationsViewController: NotificationsUserFollowTableViewCellDeleg
                 User(
                     username: username,
                     profilePictureURL: nil,
+                    coverPictureURL: nil,
                     identifier: "123"
                 )
         )
@@ -242,6 +250,7 @@ extension NotificationsViewController {
         let vc = PostViewController(model: PostModel(identifier: identifier, user: User(
             username: "kanyewest",
             profilePictureURL: nil,
+            coverPictureURL: nil,
             identifier: UUID().uuidString
         )))
         vc.hidesBottomBarWhenPushed = true

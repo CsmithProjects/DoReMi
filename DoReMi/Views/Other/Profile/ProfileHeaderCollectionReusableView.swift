@@ -36,20 +36,13 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
     // Subviews
     
-    private let avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.masksToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .secondarySystemBackground
-        return imageView
-    }()
-    
     // Follow or Edit Button
     private let primaryButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 6
         button.layer.masksToBounds = true
         button.setTitle("Follow", for: .normal)
+        button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemPink
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
         button.setTitleColor(.label, for: .normal)
@@ -61,6 +54,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         button.layer.cornerRadius = 6
         button.layer.masksToBounds = true
         button.setTitle("0\nFollowers", for: .normal)
+        button.setTitleColor(.label, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.numberOfLines = 2
         button.setTitleColor(.label, for: .normal)
@@ -73,6 +67,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         button.layer.cornerRadius = 6
         button.layer.masksToBounds = true
         button.setTitle("0\nFollowing", for: .normal)
+        button.setTitleColor(.label, for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.numberOfLines = 2
         button.setTitleColor(.label, for: .normal)
@@ -88,10 +83,9 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         backgroundColor = .systemBackground
         addSubviews()
         configureButtons()
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))
-        avatarImageView.isUserInteractionEnabled = true
-        avatarImageView.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAvatar))
+//        avatarImageView.isUserInteractionEnabled = true
+//        avatarImageView.addGestureRecognizer(tap)
         
     }
     
@@ -106,7 +100,6 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     }
     
     func addSubviews() {
-        addSubview(avatarImageView)
         addSubview(primaryButton)
         addSubview(followersButton)
         addSubview(followingButton)
@@ -125,12 +118,8 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let avatarSize: CGFloat = 130
-        avatarImageView.frame = CGRect(x: (width - avatarSize)/2, y: 5, width: avatarSize, height: avatarSize)
-        avatarImageView.layer.cornerRadius = avatarImageView.height/2
-        
-        followersButton.frame = CGRect(x: (width - 210)/2, y: avatarImageView.bottom+10, width: 100, height: 44)
-        followingButton.frame = CGRect(x: followersButton.right+10, y: avatarImageView.bottom+10, width: 100, height: 44)
+        followersButton.frame = CGRect(x: (width - 210)/2, y: 300, width: 100, height: 44)
+        followingButton.frame = CGRect(x: followersButton.right+10, y: 300, width: 100, height: 44)
 
         primaryButton.frame = CGRect(x: (width - 220)/2, y: followingButton.bottom + 15, width: 220, height: 44)
     }
@@ -172,13 +161,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         // set up our header
         followersButton.setTitle("\(viewModel.followerCount)\nFollowers", for: .normal)
         followingButton.setTitle("\(viewModel.followingCount)\nFollowing", for: .normal)
-        if let avatarURL = viewModel.avatarImageURL {
-            avatarImageView.sd_setImage(with: avatarURL, completed: nil)
-        }
-        else {
-            avatarImageView.image = UIImage(named: "Test")
-        }
-        
+
         if let isFollowing = viewModel.isFollowing {
             primaryButton.backgroundColor = isFollowing ? .secondarySystemBackground : .systemPink
             primaryButton.setTitle(isFollowing ? "Unfollow" : "Follow", for: .normal)

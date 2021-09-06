@@ -9,6 +9,7 @@ import Foundation
 
 struct ProfileHeaderViewModel {
     let avatarImageURL: URL?
+    let coverPhotoImageURL: URL?
     let followerCount: Int
     let followingCount: Int
     let isFollowing: Bool?

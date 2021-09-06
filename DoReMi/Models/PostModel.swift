@@ -23,11 +23,17 @@ struct PostModel {
                 user: User(
                     username: "kanyewest",
                     profilePictureURL: nil,
+                    coverPictureURL: nil,
                     identifier: UUID().uuidString
                 )
             )
             posts.append(post)
         }
         return posts
+    }
+    
+    /// Represents database child path for this post in a given user node
+    var videoChildPath: String {
+        return "videos/\(user.username.lowercased())/\(filename)"
     }
 }

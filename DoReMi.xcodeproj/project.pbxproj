@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		229334301BD45A1789BDC564 /* Pods_DoReMiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6BF2CEEE46C70A1AD948F9 /* Pods_DoReMiTests.framework */; };
 		4C85895927CA97D7819C6641 /* Pods_DoReMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AA33086935200AC9841A5A /* Pods_DoReMi.framework */; };
+		751E4B8F26E424220060B705 /* WalletMenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4B8E26E424220060B705 /* WalletMenuBarView.swift */; };
+		751E4B9326E5D6BE0060B705 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4B9226E5D6BE0060B705 /* AvatarImageView.swift */; };
+		751E4B9526E5D6DA0060B705 /* CoverPhotoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4B9426E5D6DA0060B705 /* CoverPhotoImageView.swift */; };
 		7521968C26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521968B26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift */; };
 		7521968E26C48A9000F102FA /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521968D26C48A9000F102FA /* ProfileHeaderViewModel.swift */; };
+		752935D026CDD1D5002CBCA5 /* DiscoverBannerLoadingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752935CF26CDD1D5002CBCA5 /* DiscoverBannerLoadingCollectionViewCell.swift */; };
 		756A462F268D331F00F8F081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A462E268D331F00F8F081 /* AppDelegate.swift */; };
 		756A4631268D331F00F8F081 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4630268D331F00F8F081 /* SceneDelegate.swift */; };
 		756A4633268D331F00F8F081 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A4632268D331F00F8F081 /* HomeViewController.swift */; };
@@ -57,23 +62,30 @@
 		75C2A72C26B0C0E40009BDD1 /* CaptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72B26B0C0E40009BDD1 /* CaptionViewController.swift */; };
 		75C2A72E26B38D560009BDD1 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72D26B38D560009BDD1 /* NotificationsViewController.swift */; };
 		75C2A73026B38E0B0009BDD1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A72F26B38E0B0009BDD1 /* MessagesViewController.swift */; };
-		75C2A73226B3930F0009BDD1 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73126B3930F0009BDD1 /* ProfileManager.swift */; };
 		75C2A73426B5F4530009BDD1 /* AnimationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73326B5F4530009BDD1 /* AnimationsManager.swift */; };
 		75C2A73626BB84770009BDD1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73526BB84770009BDD1 /* Notifications.swift */; };
 		75C2A73826BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73726BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift */; };
 		75C2A73C26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73B26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift */; };
 		75C2A73E26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A73D26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift */; };
+		75FB2E9F26D1E8C000ABADFC /* DiscoverPostLoadingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2E9E26D1E8C000ABADFC /* DiscoverPostLoadingCollectionViewCell.swift */; };
+		75FB2EA126D1FA2200ABADFC /* DiscoverUserLoadingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EA026D1FA2200ABADFC /* DiscoverUserLoadingCollectionViewCell.swift */; };
+		75FB2EA326D1FA8000ABADFC /* DiscoverHashtagLoadingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EA226D1FA8000ABADFC /* DiscoverHashtagLoadingCollectionViewCell.swift */; };
+		75FB2EAB26DEF51800ABADFC /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EAA26DEF51800ABADFC /* PostCollectionViewCell.swift */; };
+		75FB2EAD26E08B9100ABADFC /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EAC26E08B9100ABADFC /* EditProfileViewController.swift */; };
+		75FB2EAF26E0A3CB00ABADFC /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EAE26E0A3CA00ABADFC /* SwitchTableViewCell.swift */; };
+		75FB2EB126E0A7A000ABADFC /* SwitchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EB026E0A7A000ABADFC /* SwitchCellViewModel.swift */; };
+		75FB2EB326E0AC9200ABADFC /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EB226E0AC9200ABADFC /* SettingsSection.swift */; };
+		75FB2EB526E0ACDA00ABADFC /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EB426E0ACDA00ABADFC /* SettingsOption.swift */; };
+		75FB2EB726E1E75400ABADFC /* DiscoverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EB626E1E75400ABADFC /* DiscoverResponse.swift */; };
+		75FB2EB926E1E79B00ABADFC /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EB826E1E79B00ABADFC /* Banner.swift */; };
+		75FB2EBB26E1E7C100ABADFC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EBA26E1E7C100ABADFC /* Post.swift */; };
+		75FB2EBD26E1E7D800ABADFC /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EBC26E1E7D800ABADFC /* Hashtag.swift */; };
+		75FB2EBF26E1E7EA00ABADFC /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EBE26E1E7EA00ABADFC /* Creator.swift */; };
+		75FB2EC726E1EA7E00ABADFC /* DoReMiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB2EC626E1EA7E00ABADFC /* DoReMiTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		756A4642268D332100F8F081 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 756A4623268D331F00F8F081 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 756A462A268D331F00F8F081;
-			remoteInfo = DoReMi;
-		};
-		756A464D268D332100F8F081 /* PBXContainerItemProxy */ = {
+		75FB2EC926E1EA7E00ABADFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 756A4623268D331F00F8F081 /* Project object */;
 			proxyType = 1;
@@ -83,9 +95,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F94890B8021D9B5E128F3E9 /* Pods-DoReMiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMiTests.debug.xcconfig"; path = "Target Support Files/Pods-DoReMiTests/Pods-DoReMiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E6BF2CEEE46C70A1AD948F9 /* Pods_DoReMiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoReMiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E9C7E57E6F18B0A25FA41B /* Pods-DoReMi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMi.debug.xcconfig"; path = "Target Support Files/Pods-DoReMi/Pods-DoReMi.debug.xcconfig"; sourceTree = "<group>"; };
+		751E4B8E26E424220060B705 /* WalletMenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletMenuBarView.swift; sourceTree = "<group>"; };
+		751E4B9226E5D6BE0060B705 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
+		751E4B9426E5D6DA0060B705 /* CoverPhotoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPhotoImageView.swift; sourceTree = "<group>"; };
 		7521968B26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		7521968D26C48A9000F102FA /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		752935CF26CDD1D5002CBCA5 /* DiscoverBannerLoadingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBannerLoadingCollectionViewCell.swift; sourceTree = "<group>"; };
 		756A462B268D331F00F8F081 /* DoReMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoReMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		756A462E268D331F00F8F081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756A4630268D331F00F8F081 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,8 +111,6 @@
 		756A4637268D332000F8F081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		756A463A268D332000F8F081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		756A463C268D332000F8F081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		756A4641268D332100F8F081 /* DoReMiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoReMiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		756A464C268D332100F8F081 /* DoReMiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoReMiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		756A465E268D357600F8F081 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		756A466B268D402100F8F081 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		756A466D268D403100F8F081 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
@@ -138,14 +154,31 @@
 		75C2A72B26B0C0E40009BDD1 /* CaptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionViewController.swift; sourceTree = "<group>"; };
 		75C2A72D26B38D560009BDD1 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		75C2A72F26B38E0B0009BDD1 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		75C2A73126B3930F0009BDD1 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		75C2A73326B5F4530009BDD1 /* AnimationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsManager.swift; sourceTree = "<group>"; };
 		75C2A73526BB84770009BDD1 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		75C2A73726BB92E00009BDD1 /* NotificationsUserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsUserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		75C2A73B26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostLikeTableViewCell.swift; sourceTree = "<group>"; };
 		75C2A73D26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPostCommentTableViewCell.swift; sourceTree = "<group>"; };
+		75FB2E9E26D1E8C000ABADFC /* DiscoverPostLoadingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPostLoadingCollectionViewCell.swift; sourceTree = "<group>"; };
+		75FB2EA026D1FA2200ABADFC /* DiscoverUserLoadingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserLoadingCollectionViewCell.swift; sourceTree = "<group>"; };
+		75FB2EA226D1FA8000ABADFC /* DiscoverHashtagLoadingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHashtagLoadingCollectionViewCell.swift; sourceTree = "<group>"; };
+		75FB2EAA26DEF51800ABADFC /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		75FB2EAC26E08B9100ABADFC /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		75FB2EAE26E0A3CA00ABADFC /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		75FB2EB026E0A7A000ABADFC /* SwitchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellViewModel.swift; sourceTree = "<group>"; };
+		75FB2EB226E0AC9200ABADFC /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		75FB2EB426E0ACDA00ABADFC /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
+		75FB2EB626E1E75400ABADFC /* DiscoverResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverResponse.swift; sourceTree = "<group>"; };
+		75FB2EB826E1E79B00ABADFC /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		75FB2EBA26E1E7C100ABADFC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		75FB2EBC26E1E7D800ABADFC /* Hashtag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
+		75FB2EBE26E1E7EA00ABADFC /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
+		75FB2EC426E1EA7E00ABADFC /* DoReMiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoReMiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75FB2EC626E1EA7E00ABADFC /* DoReMiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoReMiTests.swift; sourceTree = "<group>"; };
+		75FB2EC826E1EA7E00ABADFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76AA33086935200AC9841A5A /* Pods_DoReMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoReMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A71F1E452391898E187332 /* Pods-DoReMi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMi.release.xcconfig"; path = "Target Support Files/Pods-DoReMi/Pods-DoReMi.release.xcconfig"; sourceTree = "<group>"; };
+		C2E0E30F7A92D0F477B962FC /* Pods-DoReMiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoReMiTests.release.xcconfig"; path = "Target Support Files/Pods-DoReMiTests/Pods-DoReMiTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,17 +190,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		756A463E268D332100F8F081 /* Frameworks */ = {
+		75FB2EC126E1EA7E00ABADFC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		756A4649268D332100F8F081 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				229334301BD45A1789BDC564 /* Pods_DoReMiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,14 +205,34 @@
 			isa = PBXGroup;
 			children = (
 				76AA33086935200AC9841A5A /* Pods_DoReMi.framework */,
+				5E6BF2CEEE46C70A1AD948F9 /* Pods_DoReMiTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		751E4B8C26E422EC0060B705 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				751E4B8E26E424220060B705 /* WalletMenuBarView.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		751E4B8D26E423040060B705 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7521968B26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift */,
+				751E4B9226E5D6BE0060B705 /* AvatarImageView.swift */,
+				751E4B9426E5D6DA0060B705 /* CoverPhotoImageView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		756A4622268D331F00F8F081 = {
 			isa = PBXGroup;
 			children = (
 				756A462D268D331F00F8F081 /* DoReMi */,
+				75FB2EC526E1EA7E00ABADFC /* DoReMiTests */,
 				756A462C268D331F00F8F081 /* Products */,
 				EBFA8236656C0A3A6371D777 /* Pods */,
 				12A8C80002B8B4ACE6623548 /* Frameworks */,
@@ -196,8 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				756A462B268D331F00F8F081 /* DoReMi.app */,
-				756A4641268D332100F8F081 /* DoReMiTests.xctest */,
-				756A464C268D332100F8F081 /* DoReMiUITests.xctest */,
+				75FB2EC426E1EA7E00ABADFC /* DoReMiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,6 +305,13 @@
 				75C2A69F269F97000009BDD1 /* DiscoverCell.swift */,
 				75C2A6A1269F974D0009BDD1 /* DiscoverSectionType.swift */,
 				75C2A73526BB84770009BDD1 /* Notifications.swift */,
+				75FB2EB226E0AC9200ABADFC /* SettingsSection.swift */,
+				75FB2EB426E0ACDA00ABADFC /* SettingsOption.swift */,
+				75FB2EB626E1E75400ABADFC /* DiscoverResponse.swift */,
+				75FB2EB826E1E79B00ABADFC /* Banner.swift */,
+				75FB2EBA26E1E7C100ABADFC /* Post.swift */,
+				75FB2EBC26E1E7D800ABADFC /* Hashtag.swift */,
+				75FB2EBE26E1E7EA00ABADFC /* Creator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,6 +324,7 @@
 				75C2A6A7269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift */,
 				75C2A6A9269F99DF0009BDD1 /* DiscoverUserViewModel.swift */,
 				7521968D26C48A9000F102FA /* ProfileHeaderViewModel.swift */,
+				75FB2EB026E0A7A000ABADFC /* SwitchCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -284,7 +338,6 @@
 				756A4683268E63D800F8F081 /* DatabaseManager.swift */,
 				75C2A71826A63CE40009BDD1 /* DiscoverManager.swift */,
 				756A4687268E63F900F8F081 /* HapticsManager.swift */,
-				75C2A73126B3930F0009BDD1 /* ProfileManager.swift */,
 				756A4681268E63C700F8F081 /* StorageManager.swift */,
 			);
 			path = Managers;
@@ -314,6 +367,7 @@
 				75C2A72B26B0C0E40009BDD1 /* CaptionViewController.swift */,
 				75C2A72D26B38D560009BDD1 /* NotificationsViewController.swift */,
 				75C2A72F26B38E0B0009BDD1 /* MessagesViewController.swift */,
+				75FB2EAC26E08B9100ABADFC /* EditProfileViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -329,12 +383,15 @@
 		756A467C268E637A00F8F081 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				751E4B8D26E423040060B705 /* Profile */,
+				751E4B8C26E422EC0060B705 /* Wallet */,
 				75C2A73926BB93DC0009BDD1 /* Auth */,
 				75C2A73A26BB93FF0009BDD1 /* Discover */,
 				75C2A74026BB94A20009BDD1 /* Notifications */,
 				75C2A6972696810B0009BDD1 /* CommentTableViewCell.swift */,
 				75C2A72926B0B8750009BDD1 /* RecordButton.swift */,
-				7521968B26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift */,
+				75FB2EAA26DEF51800ABADFC /* PostCollectionViewCell.swift */,
+				75FB2EAE26E0A3CA00ABADFC /* SwitchTableViewCell.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -364,6 +421,10 @@
 				75C2A71E26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift */,
 				75C2A72026A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift */,
 				75C2A72226A78C570009BDD1 /* DiscoverHashtagCollectionViewCell.swift */,
+				752935CF26CDD1D5002CBCA5 /* DiscoverBannerLoadingCollectionViewCell.swift */,
+				75FB2E9E26D1E8C000ABADFC /* DiscoverPostLoadingCollectionViewCell.swift */,
+				75FB2EA026D1FA2200ABADFC /* DiscoverUserLoadingCollectionViewCell.swift */,
+				75FB2EA226D1FA8000ABADFC /* DiscoverHashtagLoadingCollectionViewCell.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -378,11 +439,22 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
+		75FB2EC526E1EA7E00ABADFC /* DoReMiTests */ = {
+			isa = PBXGroup;
+			children = (
+				75FB2EC626E1EA7E00ABADFC /* DoReMiTests.swift */,
+				75FB2EC826E1EA7E00ABADFC /* Info.plist */,
+			);
+			path = DoReMiTests;
+			sourceTree = "<group>";
+		};
 		EBFA8236656C0A3A6371D777 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				62E9C7E57E6F18B0A25FA41B /* Pods-DoReMi.debug.xcconfig */,
 				A4A71F1E452391898E187332 /* Pods-DoReMi.release.xcconfig */,
+				3F94890B8021D9B5E128F3E9 /* Pods-DoReMiTests.debug.xcconfig */,
+				C2E0E30F7A92D0F477B962FC /* Pods-DoReMiTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -410,41 +482,25 @@
 			productReference = 756A462B268D331F00F8F081 /* DoReMi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		756A4640268D332100F8F081 /* DoReMiTests */ = {
+		75FB2EC326E1EA7E00ABADFC /* DoReMiTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 756A4658268D332100F8F081 /* Build configuration list for PBXNativeTarget "DoReMiTests" */;
+			buildConfigurationList = 75FB2ECB26E1EA7E00ABADFC /* Build configuration list for PBXNativeTarget "DoReMiTests" */;
 			buildPhases = (
-				756A463D268D332100F8F081 /* Sources */,
-				756A463E268D332100F8F081 /* Frameworks */,
-				756A463F268D332100F8F081 /* Resources */,
+				DB6280AC347527A3F548CFFA /* [CP] Check Pods Manifest.lock */,
+				75FB2EC026E1EA7E00ABADFC /* Sources */,
+				75FB2EC126E1EA7E00ABADFC /* Frameworks */,
+				75FB2EC226E1EA7E00ABADFC /* Resources */,
+				C8CE9C779927A0E200994918 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				756A4643268D332100F8F081 /* PBXTargetDependency */,
+				75FB2ECA26E1EA7E00ABADFC /* PBXTargetDependency */,
 			);
 			name = DoReMiTests;
 			productName = DoReMiTests;
-			productReference = 756A4641268D332100F8F081 /* DoReMiTests.xctest */;
+			productReference = 75FB2EC426E1EA7E00ABADFC /* DoReMiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		756A464B268D332100F8F081 /* DoReMiUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 756A465B268D332100F8F081 /* Build configuration list for PBXNativeTarget "DoReMiUITests" */;
-			buildPhases = (
-				756A4648268D332100F8F081 /* Sources */,
-				756A4649268D332100F8F081 /* Frameworks */,
-				756A464A268D332100F8F081 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				756A464E268D332100F8F081 /* PBXTargetDependency */,
-			);
-			name = DoReMiUITests;
-			productName = DoReMiUITests;
-			productReference = 756A464C268D332100F8F081 /* DoReMiUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -458,11 +514,7 @@
 					756A462A268D331F00F8F081 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					756A4640268D332100F8F081 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 756A462A268D331F00F8F081;
-					};
-					756A464B268D332100F8F081 = {
+					75FB2EC326E1EA7E00ABADFC = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 756A462A268D331F00F8F081;
 					};
@@ -482,8 +534,7 @@
 			projectRoot = "";
 			targets = (
 				756A462A268D331F00F8F081 /* DoReMi */,
-				756A4640268D332100F8F081 /* DoReMiTests */,
-				756A464B268D332100F8F081 /* DoReMiUITests */,
+				75FB2EC326E1EA7E00ABADFC /* DoReMiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -501,14 +552,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		756A463F268D332100F8F081 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		756A464A268D332100F8F081 /* Resources */ = {
+		75FB2EC226E1EA7E00ABADFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -559,6 +603,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C8CE9C779927A0E200994918 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoReMiTests/Pods-DoReMiTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoReMiTests/Pods-DoReMiTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoReMiTests/Pods-DoReMiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D1218171EFA9E16459EFD50E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,6 +637,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoReMi/Pods-DoReMi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB6280AC347527A3F548CFFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoReMiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -586,20 +669,26 @@
 				756A4688268E63F900F8F081 /* HapticsManager.swift in Sources */,
 				75C2A69026950BC40009BDD1 /* PostModel.swift in Sources */,
 				75C2A71D26A78C130009BDD1 /* DiscoverBannerCollectionViewCell.swift in Sources */,
+				751E4B9326E5D6BE0060B705 /* AvatarImageView.swift in Sources */,
 				7521968C26C357AE00F102FA /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				756A4684268E63D800F8F081 /* DatabaseManager.swift in Sources */,
+				75FB2EAF26E0A3CB00ABADFC /* SwitchTableViewCell.swift in Sources */,
 				756A465F268D357600F8F081 /* TabBarViewController.swift in Sources */,
 				756A4633268D331F00F8F081 /* HomeViewController.swift in Sources */,
 				756A4678268E633E00F8F081 /* SettingsViewController.swift in Sources */,
 				75C2A72826AE3D1F0009BDD1 /* AuthButton.swift in Sources */,
 				756A4680268E63B800F8F081 /* APICaller.swift in Sources */,
+				75FB2EB726E1E75400ABADFC /* DiscoverResponse.swift in Sources */,
 				756A467E268E639D00F8F081 /* PostViewController.swift in Sources */,
 				75C2A71F26A78C2A0009BDD1 /* DiscoverPostCollectionViewCell.swift in Sources */,
 				75C2A68E269010920009BDD1 /* Extensions.swift in Sources */,
+				75FB2EA326D1FA8000ABADFC /* DiscoverHashtagLoadingCollectionViewCell.swift in Sources */,
 				756A4670268D403C00F8F081 /* WalletViewController.swift in Sources */,
 				75C2A71926A63CE40009BDD1 /* DiscoverManager.swift in Sources */,
+				75FB2EB526E0ACDA00ABADFC /* SettingsOption.swift in Sources */,
 				75C2A6A8269F99BF0009BDD1 /* DiscoverHashtagViewModel.swift in Sources */,
 				75C2A72126A78C3C0009BDD1 /* DiscoverUserCollectionViewCell.swift in Sources */,
+				75FB2EB926E1E79B00ABADFC /* Banner.swift in Sources */,
 				75C2A72626AE3B0F0009BDD1 /* AuthField.swift in Sources */,
 				75C2A72A26B0B8750009BDD1 /* RecordButton.swift in Sources */,
 				756A466E268D403100F8F081 /* CreateViewController.swift in Sources */,
@@ -612,10 +701,13 @@
 				756A4686268E63E800F8F081 /* AuthenticationManager.swift in Sources */,
 				75C2A69226965D260009BDD1 /* CommentsViewController.swift in Sources */,
 				75C2A69E269F96AA0009BDD1 /* DiscoverSection.swift in Sources */,
+				75FB2EAB26DEF51800ABADFC /* PostCollectionViewCell.swift in Sources */,
 				75C2A6942696698E0009BDD1 /* PostComment.swift in Sources */,
+				75FB2EB326E0AC9200ABADFC /* SettingsSection.swift in Sources */,
 				756A4674268E632400F8F081 /* UserListViewController.swift in Sources */,
 				75C2A6A2269F974D0009BDD1 /* DiscoverSectionType.swift in Sources */,
 				75C2A73626BB84770009BDD1 /* Notifications.swift in Sources */,
+				75FB2EBD26E1E7D800ABADFC /* Hashtag.swift in Sources */,
 				75C2A6A0269F97000009BDD1 /* DiscoverCell.swift in Sources */,
 				75C2A72E26B38D560009BDD1 /* NotificationsViewController.swift in Sources */,
 				7521968E26C48A9000F102FA /* ProfileHeaderViewModel.swift in Sources */,
@@ -625,43 +717,40 @@
 				75C2A6982696810B0009BDD1 /* CommentTableViewCell.swift in Sources */,
 				756A4682268E63C700F8F081 /* StorageManager.swift in Sources */,
 				75C2A73026B38E0B0009BDD1 /* MessagesViewController.swift in Sources */,
+				752935D026CDD1D5002CBCA5 /* DiscoverBannerLoadingCollectionViewCell.swift in Sources */,
+				75FB2EB126E0A7A000ABADFC /* SwitchCellViewModel.swift in Sources */,
+				75FB2EBB26E1E7C100ABADFC /* Post.swift in Sources */,
 				756A4676268E633300F8F081 /* SignInViewController.swift in Sources */,
 				75C2A73C26BB94420009BDD1 /* NotificationsPostLikeTableViewCell.swift in Sources */,
-				75C2A73226B3930F0009BDD1 /* ProfileManager.swift in Sources */,
+				75FB2EAD26E08B9100ABADFC /* EditProfileViewController.swift in Sources */,
+				75FB2EBF26E1E7EA00ABADFC /* Creator.swift in Sources */,
 				75C2A6A4269F99540009BDD1 /* DiscoverBannerViewModel.swift in Sources */,
+				75FB2EA126D1FA2200ABADFC /* DiscoverUserLoadingCollectionViewCell.swift in Sources */,
 				75C2A73E26BB946E0009BDD1 /* NotificationsPostCommentTableViewCell.swift in Sources */,
+				75FB2E9F26D1E8C000ABADFC /* DiscoverPostLoadingCollectionViewCell.swift in Sources */,
 				756A466C268D402100F8F081 /* DiscoverViewController.swift in Sources */,
 				75C2A6A6269F99990009BDD1 /* DiscoverPostViewModel.swift in Sources */,
+				751E4B9526E5D6DA0060B705 /* CoverPhotoImageView.swift in Sources */,
 				75C2A696269669C80009BDD1 /* User.swift in Sources */,
+				751E4B8F26E424220060B705 /* WalletMenuBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		756A463D268D332100F8F081 /* Sources */ = {
+		75FB2EC026E1EA7E00ABADFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		756A4648268D332100F8F081 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				75FB2EC726E1EA7E00ABADFC /* DoReMiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		756A4643268D332100F8F081 /* PBXTargetDependency */ = {
+		75FB2ECA26E1EA7E00ABADFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 756A462A268D331F00F8F081 /* DoReMi */;
-			targetProxy = 756A4642268D332100F8F081 /* PBXContainerItemProxy */;
-		};
-		756A464E268D332100F8F081 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 756A462A268D331F00F8F081 /* DoReMi */;
-			targetProxy = 756A464D268D332100F8F081 /* PBXContainerItemProxy */;
+			targetProxy = 75FB2EC926E1EA7E00ABADFC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -836,14 +925,14 @@
 			};
 			name = Release;
 		};
-		756A4659268D332100F8F081 /* Debug */ = {
+		75FB2ECC26E1EA7E00ABADFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F94890B8021D9B5E128F3E9 /* Pods-DoReMiTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JV98Q78HP8;
 				INFOPLIST_FILE = DoReMiTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -857,14 +946,14 @@
 			};
 			name = Debug;
 		};
-		756A465A268D332100F8F081 /* Release */ = {
+		75FB2ECD26E1EA7E00ABADFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2E0E30F7A92D0F477B962FC /* Pods-DoReMiTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JV98Q78HP8;
 				INFOPLIST_FILE = DoReMiTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -875,44 +964,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoReMi.app/DoReMi";
-			};
-			name = Release;
-		};
-		756A465C268D332100F8F081 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DoReMiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = DoReMi.DoReMiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DoReMi;
-			};
-			name = Debug;
-		};
-		756A465D268D332100F8F081 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DoReMiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = DoReMi.DoReMiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DoReMi;
 			};
 			name = Release;
 		};
@@ -937,20 +988,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		756A4658268D332100F8F081 /* Build configuration list for PBXNativeTarget "DoReMiTests" */ = {
+		75FB2ECB26E1EA7E00ABADFC /* Build configuration list for PBXNativeTarget "DoReMiTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				756A4659268D332100F8F081 /* Debug */,
-				756A465A268D332100F8F081 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		756A465B268D332100F8F081 /* Build configuration list for PBXNativeTarget "DoReMiUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				756A465C268D332100F8F081 /* Debug */,
-				756A465D268D332100F8F081 /* Release */,
+				75FB2ECC26E1EA7E00ABADFC /* Debug */,
+				75FB2ECD26E1EA7E00ABADFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

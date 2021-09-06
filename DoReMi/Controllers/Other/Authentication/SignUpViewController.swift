@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         usernameField.frame = CGRect(x: 20, y: logoImageView.bottom+20, width: view.width-40, height: 55)
         emailField.frame = CGRect(x: 20, y: usernameField.bottom+15, width: view.width-40, height: 55)
         passwordField.frame = CGRect(x: 20, y: emailField.bottom+15, width: view.width-40, height: 55)
-
+        
         signUpButton.frame = CGRect(x: 20, y: passwordField.bottom+20, width: view.width-40, height: 55)
         termsButton.frame = CGRect(x: 20, y: signUpButton.bottom+40, width: view.width-40, height: 55)
         
@@ -118,11 +118,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
         AuthManager.shared.signUp(with: username, email: email, password: password) { [weak self] success in
-            if success {
-                print("Signed Up")
-            }
-            else {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if success {
+                    print("Signed Up")
+                    HapticsManager.shared.vibrate(for: .success)
+                }
+                else {
+                    HapticsManager.shared.vibrate(for: .error)
                     let alert = UIAlertController(title: "Sign Up Failed",
                         message: "Something went wrong when trying to register. Please try again.",
                         preferredStyle: .alert
@@ -132,9 +134,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        let vc = SignUpViewController()
-        vc.title = "Create Account"
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func didTapTerms() {

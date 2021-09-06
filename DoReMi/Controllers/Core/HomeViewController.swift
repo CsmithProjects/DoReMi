@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
         scrollView.bounces = false
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     
@@ -22,8 +23,7 @@ class HomeViewController: UIViewController {
         let control = UISegmentedControl(items: titles)
         control.selectedSegmentIndex = 1
         control.backgroundColor = nil
-        control.selectedSegmentTintColor = .white
-        
+        control.selectedSegmentTintColor = .systemBackground
         return control
     }()
     
@@ -185,6 +185,7 @@ extension HomeViewController: UIScrollViewDelegate {
 
 extension HomeViewController: PostViewControllerDelegate {
     func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        view.isUserInteractionEnabled = false
         horizontalScrollView.isScrollEnabled = false
         if horizontalScrollView.contentOffset.x == 0 {
             followingPageViewController.dataSource = nil
@@ -201,16 +202,18 @@ extension HomeViewController: PostViewControllerDelegate {
         vc.view.frame = frame
         UIView.animate(withDuration: 0.2) {
             vc.view.frame = CGRect(x: 0, y: self.view.height - frame.height, width: frame.width, height: frame.height)
+        } completion: { done in
+            if done {
+                self.view.isUserInteractionEnabled = true
+            }
         }
     }
     
     func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
         let user = post.user
-        print(user)
         let vc = ProfileViewController(user: user)
         vc.hidesBottomBarWhenPushed = true
         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(didTapBack))
-        navigationController?.navigationBar.tintColor = .label
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -239,21 +242,7 @@ extension HomeViewController: CommentsViewControllerDelegate {
     }
 }
 
-extension HomeViewController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-}
-
-
 class NoSwipeSegmentedControl: UISegmentedControl {
-
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

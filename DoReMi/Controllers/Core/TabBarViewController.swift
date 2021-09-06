@@ -43,10 +43,13 @@ class TabBarViewController: UITabBarController {
             urlString = cachedUrlString
         }
         
+        //add cover picture url
+        
         let profile = ProfileViewController(
             user: User(
                 username: UserDefaults.standard.string(forKey: "username")?.lowercased() ?? "Me",
                 profilePictureURL: URL(string: urlString ?? ""),
+                coverPictureURL: nil,
                 identifier: UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""
             )
         )
@@ -68,7 +71,7 @@ class TabBarViewController: UITabBarController {
         nav1.navigationBar.shadowImage = UIImage()
 
         nav2.navigationBar.backgroundColor = .clear
-        nav2.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        nav2.navigationBar.setBackgroundImage(UIImage(), for: .default)
         nav2.navigationBar.shadowImage = UIImage()
         
         nav3.navigationBar.backgroundColor = .clear
@@ -76,13 +79,15 @@ class TabBarViewController: UITabBarController {
         nav3.navigationBar.shadowImage = UIImage()
         nav3.navigationBar.tintColor = .white
         
-        nav4.navigationBar.backgroundColor = .clear
-        nav4.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        nav4.navigationBar.backgroundColor = .systemBackground
+        //nav4.navigationBar.setBackgroundImage(UIImage(), for: .default)
         nav4.navigationBar.shadowImage = UIImage()
+        nav4.navigationBar.isTranslucent = false
         
-        nav5.navigationBar.backgroundColor = .clear
-        nav5.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        nav5.navigationBar.backgroundColor = .systemBackground
+        //nav5.navigationBar.setBackgroundImage(UIImage(), for: .default)
         nav5.navigationBar.shadowImage = UIImage()
+        nav5.navigationBar.isTranslucent = false
         
         //nav4.navigationBar.tintColor = .label -- may add this not sure yet
         
@@ -132,7 +137,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if (tabBarController.selectedIndex == 0) {
             self.tabBar.tintColor = .white
-            UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear) {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .transitionCrossDissolve) {
                 self.tabBar.barTintColor = .black
                 self.tabBar.isTranslucent = false
                 self.tabBar.layoutIfNeeded()

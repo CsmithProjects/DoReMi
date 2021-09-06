@@ -5,6 +5,7 @@
 //  Created by Conor Smith on 6/30/21.
 //
 
+import Appirater
 import UIKit
 import Firebase
 
@@ -15,10 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        Appirater.appLaunched(true)
+        Appirater.setDebug(false)
+        Appirater.setAppId("My app store ID")
+        Appirater.setDaysUntilPrompt(2)
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = TabBarViewController()
         self.window = window
         self.window?.makeKeyAndVisible()
+        
+        
         
         FirebaseApp.configure()
         

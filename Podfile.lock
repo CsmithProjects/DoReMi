@@ -396,7 +396,6 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
-  - ShimmerSwift (2.1.1)
 
 DEPENDENCIES:
   - Appirater
@@ -410,7 +409,6 @@ DEPENDENCIES:
   - Firebase/Storage
   - ProgressHUD
   - SDWebImage
-  - ShimmerSwift
 
 SPEC REPOS:
   trunk:
@@ -442,7 +440,6 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
     - SDWebImage
-    - ShimmerSwift
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -473,8 +470,7 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  ShimmerSwift: f7ed2daf9c246de8299dfd9e12c6ab465cba9842
 
-PODFILE CHECKSUM: 49625f465ab87770d8dc4768749c83bf91b106e1
+PODFILE CHECKSUM: f21653ba2d8c0c6208f71573c0666f95ae651a58
 
 COCOAPODS: 1.10.1

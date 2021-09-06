@@ -36,8 +36,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             withReuseIdentifier: ProfileHeaderCollectionReusableView.identifier
         )
         collection.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "cell"
+            PostCollectionViewCell.self,
+            forCellWithReuseIdentifier: PostCollectionViewCell.identifier
         )
         return collection
     }()
@@ -78,8 +78,26 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         return button
     }()
     
+    //For desired effect I could not put images in collectionReusableView
+    
+    private let avatarImageView: AvatarImageView = {
+        let imageView = AvatarImageView(image: UIImage(named: "Test"))
+        return imageView
+    }()
+    
+    private let coverPhotoImageView: CoverPhotoImageView = {
+        let imageView = CoverPhotoImageView(image: UIImage(named: "splashBackground"))
+        return imageView
+    }()
+    
     private var posts = [PostModel]()
-
+    
+    private var followers = [String]()
+    private var following = [String]()
+    private var isFollower: Bool = false
+    
+    //private var coverPhoto: UIImageView?
+    
     // MARK: - Init
     
     init(user: User) {
@@ -98,7 +116,23 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         title = "Profile"
         view.backgroundColor = .systemBackground
         setUpProfile()
-        fetchPosts()
+        fetchProfileImages()
+        //fetchPosts()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Profile"
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    func fetchProfileImages() {
+        if let avatarURL = self.user.profilePictureURL {
+            avatarImageView.sd_setImage(with: avatarURL, completed: nil)
+        }
+        else {
+            avatarImageView.image = UIImage(named: "Test")
+        }
     }
     
     func fetchPosts() {
@@ -112,10 +146,15 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     private func setUpProfile() {
         view.addSubview(collectionView)
+        
+        collectionView.addSubview(coverPhotoImageView)
+        collectionView.addSubview(avatarImageView)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         let vc = self.navigationController?.viewControllers.first
         let username = UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""
+        
         if vc == self.navigationController?.visibleViewController && title != username {
             //is first navigation controller in list and always users
             
@@ -161,7 +200,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         vc.modalPresentationStyle = .overFullScreen
         vc.hidesBottomBarWhenPushed = true
         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(didTapBack))
-        navigationController?.navigationBar.barTintColor = .label
+        navigationController?.navigationBar.tintColor = .label
         self.show(vc, sender: self)
     }
     
@@ -171,6 +210,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     @objc func didTapSettings() {
         let vc = SettingsViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(didTapBack))
+        navigationController?.navigationBar.tintColor = .label
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -181,12 +223,20 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let username = UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""
+        
+        let avatarSize: CGFloat = 130
+        avatarImageView.frame = CGRect(x: (view.width - avatarSize)/2, y: 200 - (avatarSize/3), width: avatarSize, height: avatarSize)
+        avatarImageView.layer.cornerRadius = avatarImageView.height/2
+        
         if (username != title) {
-            collectionView.frame = view.bounds
+            collectionView.frame = CGRect(x: 0, y: 0, width: view.width, height: view.height)
         }
+        coverPhotoImageView.frame = CGRect(x: 0, y: 0, width: view.width, height: 200)
     }
     
     // MARK: - CollectionView
+    
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30
@@ -194,19 +244,27 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //let postModel = posts[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemBlue
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PostCollectionViewCell.identifier,
+            for: indexPath
+        ) as? PostCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        //cell.configure(with: postModel)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         // open post
+        let post = posts[indexPath.row]
+        let vc = PostViewController(model: post)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = (view.width - 12) / 3
-        return CGSize(width: width, height: width * 1.5)
+        let width: CGFloat = (view.width - 2) / 3
+        return CGSize(width: width, height: width * 1.325)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -214,54 +272,134 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(
+            let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: ProfileHeaderCollectionReusableView.identifier,
                 for: indexPath
-              ) as? ProfileHeaderCollectionReusableView else {
+        ) as? ProfileHeaderCollectionReusableView else {
             return UICollectionReusableView()
         }
         header.delegate = self
-        let viewModel = ProfileHeaderViewModel(
-            avatarImageURL: user.profilePictureURL,
-            followerCount: 120,
-            followingCount: 200,
-            isFollowing: isCurrentUserProfile ? nil: false
-        )
-        header.configure(with: viewModel)
+        //coverPhoto = header.coverPhotoImageView
+        //coverPhoto?.image = UIImage(named: "splashBackground")
+        
+        let group = DispatchGroup()
+        group.enter()
+        group.enter()
+        group.enter()
+        
+        DatabaseManager.shared.getRelationships(for: user, type: .followers) { [weak self] followers in
+            defer {
+                group.leave()
+            }
+            self?.followers = followers
+        }
+        
+        DatabaseManager.shared.getRelationships(for: user, type: .following) { [weak self] following in
+            defer {
+                group.leave()
+            }
+            self?.following = following
+        }
+        
+        DatabaseManager.shared.isValidRelationship(for: user, type: .followers) { [weak self] isFollower in
+            defer {
+                group.leave()
+            }
+            self?.isFollower = isFollower
+        }
+        
+        group.notify(queue: .main) {
+            let viewModel = ProfileHeaderViewModel(
+                avatarImageURL: self.user.profilePictureURL,
+                coverPhotoImageURL: self.user.coverPictureURL,
+                followerCount: self.followers.count,
+                followingCount: self.following.count,
+                isFollowing: self.isCurrentUserProfile ? nil: self.isFollower
+            )
+            header.configure(with: viewModel)
+        }
+        
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.width, height: 300)
+        return CGSize(width: view.width, height: 500)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let y = 200 - scrollView.contentOffset.y
+        //let h = max(60, y)
+        
+        let rect = CGRect(x: 0, y: scrollView.contentOffset.y, width: view.bounds.width, height: y)
+        coverPhotoImageView.frame = rect
+        
+        //let alpha = (scrollView.contentOffset.y / 88) + 1
+        //let translate = (scrollView.contentOffset.y / 2) + 1
+        //let avatarSize: CGFloat = 130
+        //print(translate)
+        
+        //avatarImageView.frame = CGRect(x: (view.width - avatarSize)/2, y: 200 - (avatarSize/3) - translate, width: avatarSize, height: avatarSize)
     }
 }
 
 extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapPrimaryButtonWith viewModel: ProfileHeaderViewModel) {
-        guard let currentUsername = UserDefaults.standard.string(forKey: "username") else {
-            return
-        }
         
-        if self.user.username == currentUsername {
+        if isCurrentUserProfile {
             // Edit Profile
+            let vc = EditProfileViewController()
+            let navVC = UINavigationController(rootViewController: vc)
+            present(navVC, animated: true)
         }
         else {
             // Follow or Unfollow current users profile that we are viewing
+            if self.isFollower {
+                DatabaseManager.shared.updateRelationship(for: user, follow: false) { [weak self] success in
+                    if success {
+                        DispatchQueue.main.async {
+                            self?.isFollower = false
+                            self?.collectionView.reloadData()
+                        }
+                    }
+                    else {
+                        
+                    }
+                }
+            }
+            else {
+                DatabaseManager.shared.updateRelationship(for: user, follow: true) { [weak self] success in
+                    if success {
+                        DispatchQueue.main.async {
+                            self?.isFollower = true
+                            self?.collectionView.reloadData()
+                        }
+                    }
+                }
+            }
         }
     }
     
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowersButtonWith viewModel: ProfileHeaderViewModel) {
-        
+        let vc = UserListViewController(type: .followers, user: user)
+        vc.users = followers
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapFollowingButtonWith viewModel: ProfileHeaderViewModel) {
-        
+        let vc = UserListViewController(type: .following, user: user)
+        vc.users = following
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderCollectionReusableView(_ header: ProfileHeaderCollectionReusableView, didTapAvatarFor viewModel: ProfileHeaderViewModel) {
@@ -315,12 +453,54 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                     strongSelf.user = User(
                         username: strongSelf.user.username,
                         profilePictureURL: downloadURL,
+                        coverPictureURL: strongSelf.user.coverPictureURL,
                         identifier: strongSelf.user.username
                     )
                     ProgressHUD.showSuccess("Updated!")
                     strongSelf.collectionView.reloadData()
                 case .failure:
                     ProgressHUD.showError("Failed to update profile picture.")
+                }
+            }
+        }
+    }
+}
+
+extension ProfileViewController: PostViewControllerDelegate {
+    func postViewController(_ vc: PostViewController, didTapCommentButtonFor post: PostModel) {
+        let vc = CommentsViewController(post: post)
+        vc.delegate = self
+        addChild(vc)
+        vc.didMove(toParent: self)
+        view.addSubview(vc.view)
+        let frame: CGRect = CGRect(x: 0, y: view.height, width: view.width, height: view.height * 0.76)
+        vc.view.frame = frame
+        UIView.animate(withDuration: 0.2) {
+            vc.view.frame = CGRect(x: 0, y: self.view.height - frame.height, width: frame.width, height: frame.height)
+        }
+    }
+    
+    func postViewController(_ vc: PostViewController, didTapProfileButtonFor post: PostModel) {
+        let user = post.user
+        let vc = ProfileViewController(user: user)
+        vc.hidesBottomBarWhenPushed = true
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(didTapBack))
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension ProfileViewController: CommentsViewControllerDelegate {
+    func didTapCloseForComments(with viewController: CommentsViewController) {
+        //close comment with animation
+        let frame = viewController.view.frame
+        UIView.animate(withDuration: 0.2) {
+            viewController.view.frame = CGRect(x: 0, y: self.view.height, width: frame.width, height: frame.height)
+        } completion: { done in
+            if done {
+                DispatchQueue.main.async {
+                    viewController.view.removeFromSuperview()
+                    viewController.removeFromParent()
                 }
             }
         }
