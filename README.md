@@ -6,9 +6,6 @@ This is the source code for my DoReMi project
 -Feed
 -Explore
 -Posting
--Buying Videos
--Creating NFTs
--Selling Videos
 -Messaging Users
 -User Creation
 -Notfifications
